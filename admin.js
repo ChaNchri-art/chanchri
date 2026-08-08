@@ -7,6 +7,33 @@
 
 const WHATSAPP_STATUS_OPTIONS = ['nouveau', 'confirmé', 'expédié', 'livré', 'annulé'];
 
+const CONFIRMATION_TEXT = {
+  fr: {
+    greeting: (name, orderNo) => `Bonjour ${name}, votre commande *${orderNo}* chez Cha.Nechri est confirmée ✅`,
+    delivery: 'Livraison',
+    domicile: 'Domicile',
+    bureau: 'Bureau',
+    total: 'Total à payer à la livraison',
+    thanks: 'Merci pour votre confiance, on vous livre bientôt ! 🌸'
+  },
+  en: {
+    greeting: (name, orderNo) => `Hi ${name}, your order *${orderNo}* from Cha.Nechri is confirmed ✅`,
+    delivery: 'Delivery',
+    domicile: 'Home delivery',
+    bureau: 'Pickup point',
+    total: 'Total to pay on delivery',
+    thanks: 'Thanks for your order, it will be delivered soon! 🌸'
+  },
+  ar: {
+    greeting: (name, orderNo) => `مرحباً ${name}، تم تأكيد طلبك *${orderNo}* من Cha.Nechri ✅`,
+    delivery: 'التوصيل',
+    domicile: 'توصيل للمنزل',
+    bureau: 'نقطة استلام',
+    total: 'المبلغ الإجمالي يُدفع عند التوصيل',
+    thanks: 'شكراً لثقتكم، سيتم التوصيل قريباً! 🌸'
+  }
+};
+
 function fmtDA(n) {
   return new Intl.NumberFormat('fr-FR').format(n || 0) + ' DA';
 }
@@ -19,15 +46,17 @@ function toWhatsappNumber(localPhone) {
 }
 
 function buildConfirmationMessage(order) {
+  const lang = CONFIRMATION_TEXT[order.lang] ? order.lang : 'fr';
+  const tr = CONFIRMATION_TEXT[lang];
   const itemsText = (order.items || [])
     .map(it => `- ${it.name} × ${it.qty} (${fmtDA(it.lineTotal)})`)
     .join('\n');
   return (
-    `Bonjour ${order.customer_name}, votre commande *${order.order_no}* chez Cha.Nechri est confirmée ✅\n\n` +
+    `${tr.greeting(order.customer_name, order.order_no)}\n\n` +
     `${itemsText}\n\n` +
-    `Livraison (${order.delivery_type === 'domicile' ? 'Domicile' : 'Bureau'}) : ${fmtDA(order.shipping_fee)}\n` +
-    `Total à payer à la livraison : *${fmtDA(order.grand_total)}*\n\n` +
-    `Merci pour votre confiance, on vous livre bientôt ! 🌸`
+    `${tr.delivery} (${order.delivery_type === 'domicile' ? tr.domicile : tr.bureau}) : ${fmtDA(order.shipping_fee)}\n` +
+    `${tr.total} : *${fmtDA(order.grand_total)}*\n\n` +
+    `${tr.thanks}`
   );
 }
 
@@ -65,7 +94,7 @@ function renderOrderCard(order) {
       <div>
         <div class="admin-order-no">N° ${order.order_no}</div>
         <div class="admin-order-customer">${order.customer_name} — ${order.customer_phone}</div>
-        <div class="admin-order-meta">${order.wilaya} · ${order.delivery_type === 'domicile' ? 'Domicile' : 'Bureau'}${order.address ? ' · ' + order.address : ''}</div>
+        <div class="admin-order-meta">${order.wilaya} · ${order.delivery_type === 'domicile' ? 'Domicile' : 'Bureau'}${order.address ? ' · ' + order.address : ''} · ${(order.lang || 'fr').toUpperCase()}</div>
       </div>
       <div class="admin-order-date">${new Date(order.created_at).toLocaleString('fr-FR')}</div>
     </div>

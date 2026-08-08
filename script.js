@@ -818,7 +818,8 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
         }],
         items_total: subtotal,
         shipping_fee: fee,
-        grand_total: grandTotal
+        grand_total: grandTotal,
+        lang: currentLang
       };
 
       try {
