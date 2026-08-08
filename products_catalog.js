@@ -32879,6 +32879,34 @@ export const PRODUCTS_CATALOG = [
       "en": "Interactive Musical Plush Toy for Kids, Touch Sound Effects\n• Fun touch interaction: simply tap the plush to trigger melodies and sound effects, helping stimulate your child's musical ear.\n• Multiple tunes and nursery rhymes: several switchable music modes, from classic nursery rhymes to cheerful rhythms, for playtime or bedtime.\n• Soft & safe plush design (carrot / strawberry): made from ultra-soft, skin-safe plush fabric, perfect for cuddling and play.\n• Strengthens parent-child bonding: a great educational and fun toy for shared play at home, building hand-eye coordination and rhythm sense.\n• Perfect gift idea: birthdays, celebrations and special occasions.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
       "ar": "لعبة دمية تفاعلية وموسيقية للأطفال بلمس استجابي\n• استكشاف تفاعلي للصوت والنغمات: تتميز الدمية بتصميم يعتمد على الاستجابة باللمس، مما يتيح للأطفال النقر وإنتاج نغمات موسيقية وتأثيرات صوتية متنوعة تشجعهم على استكشاف الإيقاع وتطور الحس السمعي بطريقة ممتعة ومسليّة.\n• أنماط موسيقية وأناشيد متعددة: تحتوي الدمية التفاعلية على أوضاع موسيقية متعددة قابلة للتبديل تدمج بين أناشيد الأطفال الكلاسيكية والأغاني الإيقاعية المبهجة، لتناسب مختلف الأوقات سواء أثناء اللعب والنشاط أو للتهدئة وقت النوم.\n• تصميم مخملي ناعم ولطيف (شكل الجزر والفراولة): صُنعت من قماش مخملي فائق النعومة وآمن على بشرة الأطفال، مما يجعلها الرفيق المثالي للعناق واللعب.\n• تعزيز التفاعل والترابط بين الوالدين والطفل: أداة تعليمية وترفيهية ممتازة للعب المشترك في البيت.\n• خيار هدية مثالي: أعياد الميلاد والمناسبات والحفلات.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
     }
+  },
+  {
+    "id": "sac-a-dos-cuir-tresse-elegant-noir-or",
+    "categoryId": "sacs",
+    "basePrice": 3200,
+    "image": "https://sawa9ly.app/storage/76657/1786019733196_corigq7j_o1cn01c2mrlj1fcbxwooqmr_--2217113890451-0-cib-(2).jpg",
+    "images": [
+      "https://sawa9ly.app/storage/76657/1786019733196_corigq7j_o1cn01c2mrlj1fcbxwooqmr_--2217113890451-0-cib-(2).jpg",
+      "https://sawa9ly.app/storage/76658/1786019733105_e1llkq83_o1cn01f3saa11sftxektx4e_--1767822218-0-cib-(1).jpg",
+      "https://sawa9ly.app/storage/76659/1786019733183_ryqerhvh_1-(2).jpg",
+      "https://sawa9ly.app/storage/76660/1786019734098_fcgnx4vu_o1cn01nkdabj1sftxgyexx4_--1767822218-0-cib.jpg",
+      "https://sawa9ly.app/storage/76661/1786019734205_6ipitds4_o1cn01j8e9yf1su5swxbw4l_--2217196832249-0-cib.jpg"
+    ],
+    "name": {
+      "fr": "Sac à Dos Femme en Cuir Tressé Élégant avec Ceinture d'Épaule Convertible",
+      "en": "Women's Elegant Braided Leather Backpack with Convertible Shoulder Strap",
+      "ar": "حقيبة ظهر جلدية نسائية بتصميم مجدول فاخر مع حزام كتف قابل للتحويل"
+    },
+    "tagline": {
+      "fr": "Sac à dos en cuir tressé noir et or, 2-en-1 dos/épaule — Paiement à la livraison dans les 58 wilayas",
+      "en": "Braided black & gold leather backpack, 2-in-1 back/shoulder — Cash on delivery across 58 wilayas",
+      "ar": "حقيبة ظهر جلدية مجدولة أسود وذهبي، ظهر/كتف 2 في 1 — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Sac à Dos Femme en Cuir Tressé Élégant avec Ceinture d'Épaule Convertible\n• Design tressé élégant : look moderne et raffiné grâce à la texture tressée du cuir noir royal, rehaussée de détails métalliques dorés.\n• Usage 2-en-1 : se porte en sac à dos confortable ou se transforme en sac à main via la bandoulière amovible, selon vos looks du quotidien.\n• Cuir PU imperméable haute qualité : résiste à l'eau et à l'usure, protège vos affaires personnelles par tous les temps.\n• Grand rangement bien organisé : compartiment principal à double fermeture éclair pour téléphone, portefeuille, tablette, plus poches latérales et zips avant pour l'accès rapide.\n• Bretelles confortables et légères : sangles matelassées qui répartissent le poids, avec poignée supérieure renforcée.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
+      "en": "Women's Elegant Braided Leather Backpack with Convertible Shoulder Strap\n• Elegant braided design: modern, refined look thanks to the braided texture of the royal black leather, finished with gold metal details.\n• 2-in-1 use: wear it as a comfortable backpack or switch it to a shoulder bag with the removable strap, to match any daily outfit.\n• Waterproof high-quality PU leather: resists water and wear, keeping your belongings protected in any weather.\n• Spacious, well-organized storage: main compartment with double zip for phone, wallet and tablet, plus side pockets and front zips for quick access.\n• Comfortable, lightweight straps: padded shoulder straps that distribute weight evenly, with a reinforced top handle.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
+      "ar": "حقيبة ظهر جلدية نسائية بتصميم مجدول فاخر مع حزام كتف قابل للتحويل\n• تصميم فاخر بنقشة جلدية مجدولة: مظهر عصري راقٍ يعتمد على الملمس المجدول الأنيق للجلد باللون الأسود الملكي، مكملة بشعار وتفاصيل معدنية باللون الذهبي.\n• استخدام متعدد ومرن (2 في 1): تُحمل كحقيبة ظهر مريحة، أو تتحول بسهولة إلى حقيبة كتف بفضل حزام الكتف الإضافي القابل للإزالة.\n• جلد صناعي عالي الجودة ومقاوم للماء: يحافظ على رونق الحقيبة ويحمي محتوياتك الشخصية في مختلف الظروف الجوية.\n• سعة تخزين واسعة وتنظيم ذكي: مقصورة رئيسية واسعة بسحاب علوي مزدوج، إضافة إلى جيوب جانبية وسحابات أمامية عملية.\n• حوامل مريحة وخفيفة الوزن: أحزمة ظهر متينة ومريحة، مع مقبض علوي قوي لسهولة الحمل باليد.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+    }
   }
 ];
 
