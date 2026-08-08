@@ -1,4 +1,4 @@
-import { PRODUCTS_CATALOG } from './public/products_catalog.js';
+import { PRODUCTS_CATALOG } from './products_catalog.js';
 
   /* =====================================================
      EDIT ME — products. Each needs: id, categoryId (must match a key
