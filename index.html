@@ -10,13 +10,66 @@
 </head>
 <body>
 
+<style>
+  body.admin-mode > *:not(#adminPanel):not(script){ display:none !important; }
+  #adminPanel{ display:none; min-height:100vh; background:var(--bg); color:var(--ink); font-family:inherit; }
+  body.admin-mode #adminPanel{ display:block; }
+  .admin-wrap{ max-width:900px; margin:0 auto; padding:32px 20px 60px; }
+  .admin-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+  .admin-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:26px; }
+  .admin-logout{ background:none; border:1px solid var(--line); color:var(--ink-soft); padding:8px 14px; border-radius:var(--radius); font-size:12.5px; cursor:pointer; }
+  .admin-login-box{ max-width:340px; margin:80px auto; padding:24px; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+  .admin-login-box h3{ margin-bottom:16px; font-size:16px; }
+  .admin-login-box input{ width:100%; padding:10px 12px; margin-bottom:10px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg); color:var(--ink); font-size:13.5px; }
+  .admin-login-box button{ width:100%; padding:11px; background:var(--pink-deep); color:#fff; border:none; border-radius:var(--radius); font-weight:700; cursor:pointer; }
+  .admin-login-error{ color:#c0392b; font-size:12.5px; margin-bottom:8px; display:none; }
+  .admin-order-card{ border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; background:var(--surface); }
+  .admin-order-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; gap:8px; }
+  .admin-order-no{ font-family:'Space Mono',monospace; font-size:12.5px; color:var(--pink-deep); font-weight:700; }
+  .admin-order-date{ font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-soft); }
+  .admin-order-customer{ font-size:14.5px; font-weight:700; margin-bottom:2px; }
+  .admin-order-meta{ font-size:12.5px; color:var(--ink-soft); margin-bottom:10px; }
+  .admin-items-table{ width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
+  .admin-items-table th{ text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); border-bottom:1px solid var(--line); padding:4px 6px; }
+  .admin-items-table td{ padding:6px; border-bottom:1px solid var(--line-soft); }
+  .admin-order-totals{ text-align:right; font-family:'Space Mono',monospace; font-size:13px; margin-top:6px; }
+  .admin-order-totals b{ color:var(--pink-deep); font-size:16px; }
+  .admin-order-actions{ display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; align-items:center; }
+  .admin-btn{ padding:8px 12px; border-radius:var(--radius); font-size:12.5px; font-weight:600; cursor:pointer; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+  .admin-btn-whatsapp{ background:#25D366; color:#fff; border:none; }
+  .admin-btn-danger{ color:#c0392b; }
+  .admin-status-select{ padding:7px 10px; border-radius:var(--radius); border:1px solid var(--line); background:var(--bg); color:var(--ink); font-size:12.5px; }
+  .admin-empty{ text-align:center; padding:60px 0; color:var(--ink-soft); }
+</style>
+
+<div id="adminPanel">
+  <div class="admin-wrap">
+    <div class="admin-header">
+      <div class="admin-title">Cha.Nechri — Admin</div>
+      <button class="admin-logout" id="adminLogoutBtn" style="display:none;">Se déconnecter</button>
+    </div>
+
+    <div class="admin-login-box" id="adminLoginBox">
+      <h3>Connexion admin</h3>
+      <div class="admin-login-error" id="adminLoginError"></div>
+      <input type="email" id="adminEmail" placeholder="Email" autocomplete="username">
+      <input type="password" id="adminPassword" placeholder="Mot de passe" autocomplete="current-password">
+      <button id="adminLoginBtn">Se connecter</button>
+    </div>
+
+    <div id="adminOrdersSection" style="display:none;">
+      <div id="adminOrdersList"></div>
+    </div>
+  </div>
+</div>
+
 <!-- =====================================================================
      EDIT ME — products live in PRODUCTS[] (each has a basePrice — the
      supplier cost — the site adds your markup automatically), categories
      in CATEGORIES{}, contact info in CONTACT{}, shipping rates in
      SHIPPING_RATES{}, and all site text in TRANSLATIONS{}.
      Admin order dashboard: open this page and go to #admin
-     (login: imad / 1234 — see the note printed in the admin panel).
+     (login with the Supabase Auth account you created, e.g. edineimad29@gmail.com).
      ===================================================================== -->
 
 <div class="topbar">
@@ -402,6 +455,7 @@
 </script>
 <script type="module" src="./products_catalog.js"></script>
 <script type="module" src="./script.js"></script>
+<script type="module" src="./admin.js"></script>
 
 </body>
 </html>
