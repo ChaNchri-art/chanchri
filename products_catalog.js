@@ -32857,12 +32857,12 @@ export const PRODUCTS_CATALOG = [
     "id": "jouet-peluche-musicale-carotte",
     "categoryId": "jouets",
     "basePrice": 2300,
-    "image": "./product-images/jouet-peluche-musicale-carotte/4.jpg",
+    "image": "./4.jpg",
     "images": [
-      "./product-images/jouet-peluche-musicale-carotte/4.jpg",
-      "./product-images/jouet-peluche-musicale-carotte/1.jpg",
-      "./product-images/jouet-peluche-musicale-carotte/3.webp",
-      "./product-images/jouet-peluche-musicale-carotte/2.jpg"
+      "./4.jpg",
+      "./1.jpg",
+      "./3.webp",
+      "./2.jpg"
     ],
     "name": {
       "fr": "Jouet Peluche Musicale Interactive pour Enfants, Effets Sonores au Toucher",
