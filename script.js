@@ -118,7 +118,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       contactPhoneLabel:"Téléphone", contactWhatsappLabel:"WhatsApp", contactWhatsappSub:"Réponse rapide, tous les jours",
       contactZoneLabel:"Zone de livraison", contactZoneText:"58 wilayas — tarifs indiqués à la commande",
       contactBtn:"Écrire sur WhatsApp", contactHours:"Ouvert 24/7",
-      confirmHeading:"Commande enregistrée", confirmText:"Ta commande a été préparée. Une fenêtre WhatsApp s'ouvre pour confirmer avec le vendeur.",
+      confirmHeading:"Commande enregistrée", confirmText:"Ta commande a été enregistrée. Notre équipe te contactera bientôt pour confirmer la livraison.",
       confirmRefLabel:"Référence :", closeBtn:"Fermer",
       footerText:"© 2026 Cha.Nechri — وش تحتاج كاين !",
       drawerCatsLabel:"Catégories",
@@ -171,7 +171,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       contactPhoneLabel:"Phone", contactWhatsappLabel:"WhatsApp", contactWhatsappSub:"Fast reply, every day",
       contactZoneLabel:"Delivery area", contactZoneText:"58 wilayas — rates shown at checkout",
       contactBtn:"Message us on WhatsApp", contactHours:"Open 24/7",
-      confirmHeading:"Order received", confirmText:"Your order is ready. A WhatsApp window will open to confirm with the seller.",
+      confirmHeading:"Order received", confirmText:"Your order has been saved. Our team will contact you soon to confirm delivery.",
       confirmRefLabel:"Reference:", closeBtn:"Close",
       footerText:"© 2026 Cha.Nechri — All rights reserved.",
       drawerCatsLabel:"Categories",
@@ -224,7 +224,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       contactPhoneLabel:"الهاتف", contactWhatsappLabel:"واتساب", contactWhatsappSub:"رد سريع، كل يوم",
       contactZoneLabel:"منطقة التوصيل", contactZoneText:"58 ولاية — الأسعار تظهر عند الطلب",
       contactBtn:"راسلنا على واتساب", contactHours:"متوفرون 24/7",
-      confirmHeading:"تم تسجيل الطلب", confirmText:"طلبك جاهز. ستفتح نافذة واتساب للتأكيد مع البائع.",
+      confirmHeading:"تم تسجيل الطلب", confirmText:"تم تسجيل طلبك. سيتواصل معك فريقنا قريبًا لتأكيد التوصيل.",
       confirmRefLabel:"المرجع:", closeBtn:"إغلاق",
       footerText:"© 2026 Cha.Nechri — وش تحتاج كاين !",
       drawerCatsLabel:"التصنيفات",
@@ -840,22 +840,6 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
         if (finalNoEl) finalNoEl.textContent = orderNo;
         overlay.classList.add('show');
       }
-
-      const itemsMsg = `${currentModalProduct.name[currentLang] || currentModalProduct.name.fr} × ${pmQty} (${fmt(subtotal)})`;
-      const waText = encodeURIComponent(
-        `*Nouvelle Commande Cha.Nechri*\n` +
-        `Référence : *${orderNo}*\n` +
-        `Client : ${name}\n` +
-        `Tél : ${phone}\n` +
-        `Wilaya : ${wilaya}\n` +
-        `Mode : ${pmDeliveryType === 'domicile' ? 'Domicile (' + commune + ')' : 'Bureau StopDesk'}\n\n` +
-        `*Article :*\n${itemsMsg}\n\n` +
-        `Sous-total : ${fmt(subtotal)}\n` +
-        `Livraison : ${fmt(fee)}\n` +
-        `*Total à payer : ${fmt(grandTotal)}*`
-      );
-
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`, '_blank');
     });
   }
 
