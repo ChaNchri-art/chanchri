@@ -107,6 +107,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       fieldArticle:"Article", fieldName:"Nom et prénom", fieldNamePh:"Nom et prénom",
       fieldPhone:"Téléphone", fieldPhonePh:"05XX XX XX XX",
       fieldWilaya:"Wilaya", fieldCommune:"Commune / adresse", fieldCommunePh:"Commune, quartier, repère",
+      fieldNote:"Remarque (optionnel)", fieldNotePlaceholder:"Couleur, taille, instructions de livraison…",
       domicileLabel:"Domicile", bureauLabel:"Bureau (StopDesk)",
       productsSubtotalLabel:"Prix des produits", shippingFeeLabel:"Frais de livraison", totalLabel:"Total à payer à la livraison",
       notDeliverableMsg:"Livraison non disponible pour cette wilaya avec ce mode.",
@@ -160,6 +161,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       fieldArticle:"Item", fieldName:"Full name", fieldNamePh:"Full name",
       fieldPhone:"Phone", fieldPhonePh:"05XX XX XX XX",
       fieldWilaya:"Wilaya", fieldCommune:"City / address", fieldCommunePh:"City, neighborhood, landmark",
+      fieldNote:"Note (optional)", fieldNotePlaceholder:"Color, size, delivery instructions…",
       domicileLabel:"Home delivery", bureauLabel:"Office (StopDesk)",
       productsSubtotalLabel:"Products price", shippingFeeLabel:"Shipping fee", totalLabel:"Total due on delivery",
       notDeliverableMsg:"Delivery not available to this wilaya with this method.",
@@ -213,6 +215,7 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       fieldArticle:"المنتج", fieldName:"الاسم الكامل", fieldNamePh:"الاسم الكامل",
       fieldPhone:"الهاتف", fieldPhonePh:"05XX XX XX XX",
       fieldWilaya:"الولاية", fieldCommune:"البلدية / العنوان", fieldCommunePh:"البلدية، الحي، نقطة مميزة",
+      fieldNote:"ملاحظة (اختياري)", fieldNotePlaceholder:"اللون، المقاس، تعليمات التوصيل…",
       domicileLabel:"توصيل للمنزل", bureauLabel:"مكتب (StopDesk)",
       productsSubtotalLabel:"سعر المنتجات", shippingFeeLabel:"سعر التوصيل", totalLabel:"المجموع يُدفع عند الاستلام",
       notDeliverableMsg:"التوصيل غير متوفر لهذه الولاية بهذه الطريقة.",
@@ -783,11 +786,13 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       const phoneInput = document.getElementById('pmPhone');
       const wilayaSelect = document.getElementById('pmWilaya');
       const communeInput = document.getElementById('pmCommune');
+      const noteInput = document.getElementById('pmNote');
 
       const name = nameInput ? nameInput.value.trim() : "";
       const phone = phoneInput ? phoneInput.value.trim() : "";
       const wilaya = wilayaSelect ? wilayaSelect.value : DEFAULT_WILAYA;
       const commune = communeInput ? communeInput.value.trim() : "";
+      const note = noteInput ? noteInput.value.trim() : "";
 
       if (!name || !phone) return;
       if (pmDeliveryType === 'domicile' && !commune) return;
@@ -819,7 +824,8 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
         items_total: subtotal,
         shipping_fee: fee,
         grand_total: grandTotal,
-        lang: currentLang
+        lang: currentLang,
+        note: note
       };
 
       try {

@@ -7,6 +7,12 @@
 
 const WHATSAPP_STATUS_OPTIONS = ['nouveau', 'confirmé', 'expédié', 'livré', 'annulé'];
 
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+
 const CONFIRMATION_TEXT = {
   fr: {
     greeting: (name, orderNo) => `Bonjour ${name}, votre commande *${orderNo}* chez Cha.Nechri est confirmée ✅`,
@@ -14,6 +20,7 @@ const CONFIRMATION_TEXT = {
     domicile: 'Domicile',
     bureau: 'Bureau',
     total: 'Total à payer à la livraison',
+    note: 'Remarque',
     thanks: 'Merci pour votre confiance, on vous livre bientôt ! 🌸'
   },
   en: {
@@ -22,6 +29,7 @@ const CONFIRMATION_TEXT = {
     domicile: 'Home delivery',
     bureau: 'Pickup point',
     total: 'Total to pay on delivery',
+    note: 'Note',
     thanks: 'Thanks for your order, it will be delivered soon! 🌸'
   },
   ar: {
@@ -30,6 +38,7 @@ const CONFIRMATION_TEXT = {
     domicile: 'توصيل للمنزل',
     bureau: 'نقطة استلام',
     total: 'المبلغ الإجمالي يُدفع عند التوصيل',
+    note: 'ملاحظة',
     thanks: 'شكراً لثقتكم، سيتم التوصيل قريباً! 🌸'
   }
 };
@@ -51,11 +60,13 @@ function buildConfirmationMessage(order) {
   const itemsText = (order.items || [])
     .map(it => `- ${it.name} × ${it.qty} (${fmtDA(it.lineTotal)})`)
     .join('\n');
+  const noteLine = order.note ? `${tr.note} : ${order.note}\n\n` : '';
   return (
     `${tr.greeting(order.customer_name, order.order_no)}\n\n` +
     `${itemsText}\n\n` +
     `${tr.delivery} (${order.delivery_type === 'domicile' ? tr.domicile : tr.bureau}) : ${fmtDA(order.shipping_fee)}\n` +
     `${tr.total} : *${fmtDA(order.grand_total)}*\n\n` +
+    `${noteLine}` +
     `${tr.thanks}`
   );
 }
@@ -76,8 +87,8 @@ function renderLogin(errorMsg) {
 function renderOrderCard(order) {
   const itemsRows = (order.items || []).map(it => `
     <tr>
-      <td>${it.name}</td>
-      <td>${it.qty}</td>
+      <td>${escapeHtml(it.name)}</td>
+      <td>${escapeHtml(it.qty)}</td>
       <td>${fmtDA(it.unitPrice)}</td>
       <td>${fmtDA(it.lineTotal)}</td>
     </tr>
@@ -87,14 +98,19 @@ function renderOrderCard(order) {
     `<option value="${s}" ${order.status === s ? 'selected' : ''}>${s}</option>`
   ).join('');
 
+  const noteBlock = order.note
+    ? `<div class="admin-order-note"><b>Remarque :</b> ${escapeHtml(order.note)}</div>`
+    : '';
+
   const card = document.createElement('div');
   card.className = 'admin-order-card';
   card.innerHTML = `
     <div class="admin-order-top">
       <div>
-        <div class="admin-order-no">N° ${order.order_no}</div>
-        <div class="admin-order-customer">${order.customer_name} — ${order.customer_phone}</div>
-        <div class="admin-order-meta">${order.wilaya} · ${order.delivery_type === 'domicile' ? 'Domicile' : 'Bureau'}${order.address ? ' · ' + order.address : ''} · ${(order.lang || 'fr').toUpperCase()}</div>
+        <div class="admin-order-no">N° ${escapeHtml(order.order_no)}</div>
+        <div class="admin-order-customer">${escapeHtml(order.customer_name)} — ${escapeHtml(order.customer_phone)}</div>
+        <div class="admin-order-meta">${escapeHtml(order.wilaya)} · ${order.delivery_type === 'domicile' ? 'Domicile' : 'Bureau'}${order.address ? ' · ' + escapeHtml(order.address) : ''} · ${escapeHtml((order.lang || 'fr').toUpperCase())}</div>
+        ${noteBlock}
       </div>
       <div class="admin-order-date">${new Date(order.created_at).toLocaleString('fr-FR')}</div>
     </div>
