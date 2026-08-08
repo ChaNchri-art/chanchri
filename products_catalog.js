@@ -32852,6 +32852,33 @@ export const PRODUCTS_CATALOG = [
       "en": "Mini Machine à Laver Portable 2 en 1, Laveuse à Ultrasons avec Câble USB\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
       "ar": "Mini Machine à Laver Portable 2 en 1, Laveuse à Ultrasons avec Câble USB\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
     }
+  },
+  {
+    "id": "jouet-peluche-musicale-carotte",
+    "categoryId": "jouets",
+    "basePrice": 2300,
+    "image": "./product-images/jouet-peluche-musicale-carotte/4.jpg",
+    "images": [
+      "./product-images/jouet-peluche-musicale-carotte/4.jpg",
+      "./product-images/jouet-peluche-musicale-carotte/1.jpg",
+      "./product-images/jouet-peluche-musicale-carotte/3.webp",
+      "./product-images/jouet-peluche-musicale-carotte/2.jpg"
+    ],
+    "name": {
+      "fr": "Jouet Peluche Musicale Interactive pour Enfants, Effets Sonores au Toucher",
+      "en": "Interactive Musical Plush Toy for Kids, Touch Sound Effects",
+      "ar": "لعبة دمية تفاعلية وموسيقية للأطفال بلمس استجابي"
+    },
+    "tagline": {
+      "fr": "Peluche musicale interactive pour enfants — Paiement à la livraison dans les 58 wilayas",
+      "en": "Interactive musical plush toy for kids — Cash on delivery across 58 wilayas",
+      "ar": "دمية موسيقية تفاعلية للأطفال — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Jouet Peluche Musicale Interactive pour Enfants, Effets Sonores au Toucher\n• Interaction tactile amusante : il suffit de toucher la peluche pour déclencher des mélodies et des effets sonores, idéal pour stimuler l'oreille musicale de bébé.\n• Plusieurs mélodies et comptines : plusieurs modes musicaux au choix, entre comptines classiques et rythmes joyeux, pour jouer ou apaiser au coucher.\n• Peluche douce et sécurisée (carotte / fraise) : tissu peluche ultra-doux et sans danger pour la peau des enfants, parfait à câliner.\n• Renforce le lien parent-enfant : excellent outil ludique et éducatif pour jouer ensemble à la maison, développe la coordination main-œil et le sens du rythme.\n• Idée cadeau parfaite : anniversaires, fêtes et occasions spéciales.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
+      "en": "Interactive Musical Plush Toy for Kids, Touch Sound Effects\n• Fun touch interaction: simply tap the plush to trigger melodies and sound effects, helping stimulate your child's musical ear.\n• Multiple tunes and nursery rhymes: several switchable music modes, from classic nursery rhymes to cheerful rhythms, for playtime or bedtime.\n• Soft & safe plush design (carrot / strawberry): made from ultra-soft, skin-safe plush fabric, perfect for cuddling and play.\n• Strengthens parent-child bonding: a great educational and fun toy for shared play at home, building hand-eye coordination and rhythm sense.\n• Perfect gift idea: birthdays, celebrations and special occasions.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
+      "ar": "لعبة دمية تفاعلية وموسيقية للأطفال بلمس استجابي\n• استكشاف تفاعلي للصوت والنغمات: تتميز الدمية بتصميم يعتمد على الاستجابة باللمس، مما يتيح للأطفال النقر وإنتاج نغمات موسيقية وتأثيرات صوتية متنوعة تشجعهم على استكشاف الإيقاع وتطور الحس السمعي بطريقة ممتعة ومسليّة.\n• أنماط موسيقية وأناشيد متعددة: تحتوي الدمية التفاعلية على أوضاع موسيقية متعددة قابلة للتبديل تدمج بين أناشيد الأطفال الكلاسيكية والأغاني الإيقاعية المبهجة، لتناسب مختلف الأوقات سواء أثناء اللعب والنشاط أو للتهدئة وقت النوم.\n• تصميم مخملي ناعم ولطيف (شكل الجزر والفراولة): صُنعت من قماش مخملي فائق النعومة وآمن على بشرة الأطفال، مما يجعلها الرفيق المثالي للعناق واللعب.\n• تعزيز التفاعل والترابط بين الوالدين والطفل: أداة تعليمية وترفيهية ممتازة للعب المشترك في البيت.\n• خيار هدية مثالي: أعياد الميلاد والمناسبات والحفلات.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+    }
   }
 ];
 
