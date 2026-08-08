@@ -803,13 +803,12 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       const orderNo = (orderPreviewNo && orderPreviewNo.textContent) ? orderPreviewNo.textContent : genOrderNo();
 
       const orderData = {
-        id: orderNo,
-        date: new Date().toISOString(),
-        fullName: name,
-        phone: phone,
+        order_no: orderNo,
+        customer_name: name,
+        customer_phone: phone,
         wilaya: wilaya,
-        deliveryType: pmDeliveryType,
-        commune: commune,
+        address: commune,
+        delivery_type: pmDeliveryType,
         items: [{
           id: currentModalProduct.id,
           name: currentModalProduct.name[currentLang] || currentModalProduct.name.fr,
@@ -817,20 +816,20 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
           qty: pmQty,
           lineTotal: subtotal
         }],
-        subtotal: subtotal,
-        shippingFee: fee,
-        total: grandTotal,
-        status: 'new'
+        items_total: subtotal,
+        shipping_fee: fee,
+        grand_total: grandTotal
       };
 
       try {
-        if (window.sbClient) {
-          await window.sbClient.from('orders').insert([orderData]);
+        if (window.sb) {
+          const { error } = await window.sb.from('orders').insert(orderData);
+          if (error) console.error('Supabase insert error', error);
         } else {
-          saveOrderLocally(orderData);
+          console.error('Supabase client not initialized, order not saved to Supabase');
         }
       } catch(err) {
-        saveOrderLocally(orderData);
+        console.error('Order save to Supabase failed', err);
       }
 
       closeProductModal();
