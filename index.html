@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cha.Nechri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     EDIT ME — products live in PRODUCTS[] (each has a basePrice — the
+     supplier cost — the site adds your markup automatically), categories
+     in CATEGORIES{}, contact info in CONTACT{}, shipping rates in
+     SHIPPING_RATES{}, and all site text in TRANSLATIONS{}.
+     Admin order dashboard: open this page and go to #admin
+     (login: imad / 1234 — see the note printed in the admin panel).
+     ===================================================================== -->
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot">●</span> <span data-i18n="topbarDelivery">Livraison disponible dans les 58 wilayas</span></span>
+    <span data-i18n="topbarHours">Ouvert 24/7 — Paiement à la livraison</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <button class="hamburger-btn" id="menuToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <div class="brand-block reveal">
+      <a href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+        <img class="brand-logo" src="./logo-lockup.png" alt="Cha.Nechri" referrerPolicy="no-referrer">
+        <div class="brand-text">
+          <div class="brand-title" style="font-family:'Big Shoulders Display',sans-serif; font-size:20px; font-weight:800; letter-spacing:0.02em; color:var(--ink); line-height:1;">Cha.Nechri</div>
+          <div class="brand-slogan">وش تحتاج كاين !</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <button class="cart-btn" id="cartToggle" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-i18n-title="themeToggleTitle" title="Changer le thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="lang-toggle" id="langToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+        <span id="langCode">FR</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><button class="drawer-close" id="drawerClose">✕</button></div>
+  <nav class="drawer-nav">
+    <a href="#top" class="drawer-link" data-i18n="navHome" data-close-drawer>Accueil</a>
+    <a href="#catalog" class="drawer-link" data-i18n="navCatalog" data-close-drawer>Catalogue</a>
+    <a href="#testimonials" class="drawer-link" data-i18n="testimonialsLabel" data-close-drawer>Avis clients</a>
+    <a href="#contact" class="drawer-link" data-i18n="navContact" data-close-drawer>Contact</a>
+  </nav>
+  <div class="drawer-divider"></div>
+  <div class="drawer-section-label" data-i18n="drawerCatsLabel">Catégories</div>
+  <div class="drawer-cats" id="drawerCats"><!-- injected by JS --></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-section-label">Language / اللغة</div>
+  <div class="drawer-lang" id="drawerLang"><!-- injected by JS --></div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-section-label" data-i18n="themeLabel">Mode / المظهر</div>
+  <button class="drawer-theme-btn" id="drawerThemeToggle">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <span id="drawerThemeText">Thème sombre</span>
+  </button>
+</aside>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i18n="heroEyebrow">Nouveautés — hiver 2026</div>
+    <h1 class="display reveal" data-i18n="heroTitle">Des articles tendance, livrés chez toi</h1>
+    <p class="reveal" data-i18n="heroText">Choisis un article ci-dessous, ajoute-le au panier, et paie seulement à la réception. Livraison partout en Algérie.</p>
+    <a href="#catalog" class="cta-btn reveal" data-i18n="heroCta">Voir les articles</a>
+  </div>
+</section>
+
+<div class="receipt-strip">
+  <div class="wrap">
+    <div class="receipt-item reveal"><b data-i18n="stripDelivery">Livraison rapide 24–72h</b>&nbsp;<span class="check">✓</span></div>
+    <div class="receipt-item reveal"><b data-i18n="stripCod">Paiement à la livraison</b>&nbsp;<span class="check">✓</span></div>
+    <div class="receipt-item reveal"><b data-i18n="stripReturn">Retour possible 7 jours</b>&nbsp;<span class="check">✓</span></div>
+  </div>
+</div>
+
+<section class="how">
+  <div class="wrap">
+    <div class="section-label reveal" data-i18n="howLabel">Comment commander</div>
+    <div class="how-steps">
+      <div class="step reveal"><span class="num mono">01</span><h4 data-i18n="step1Title">Choisis tes articles</h4><p data-i18n="step1Text">Parcours le catalogue et ajoute au panier tout ce qu'il te faut.</p></div>
+      <div class="step reveal"><span class="num mono">02</span><h4 data-i18n="step2Title">Remplis le bon de commande</h4><p data-i18n="step2Text">Nom, téléphone, wilaya et mode de livraison — 30 secondes.</p></div>
+      <div class="step reveal"><span class="num mono">03</span><h4 data-i18n="step3Title">Paie à la livraison</h4><p data-i18n="step3Text">Le livreur t'apporte le colis, tu vérifies, tu paies en espèces.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="section-label reveal" data-i18n="catalogLabel">Catalogue</div>
+    
+    <!-- Product Search & Sort Controls -->
+    <div class="search-bar-wrap reveal" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <div class="search-input-box" style="position: relative; flex: 1; min-width: 240px; max-width: 480px;">
+        <input type="text" id="productSearchInput" data-i18n-ph="searchPlaceholder" placeholder="Rechercher un produit..." style="width:100%; border:1px solid var(--line); padding:12px 18px 12px 42px; border-radius:999px; font-size:14px; background:var(--surface); color:var(--ink); outline:none; font-family:inherit;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--ink-soft);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="sort-select-box" style="position: relative; min-width: 200px;">
+        <select id="productSortSelect" style="width:100%; border:1px solid var(--line); padding:12px 36px 12px 16px; border-radius:999px; font-size:13.5px; font-weight:600; background:var(--surface); color:var(--ink); outline:none; font-family:inherit; cursor:pointer; appearance:none; -webkit-appearance:none;">
+          <option value="default" data-i18n="sortDefault">Trier par : Par défaut</option>
+          <option value="price-asc" data-i18n="sortPriceAsc">Prix : Croissant</option>
+          <option value="price-desc" data-i18n="sortPriceDesc">Prix : Décroissant</option>
+          <option value="name-asc" data-i18n="sortNameAsc">Nom : A à Z</option>
+        </select>
+        <svg class="sort-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--ink-soft); pointer-events:none;"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+
+    <span class="drawer-section-label" data-i18n="filterLabel" style="display:block; margin-bottom:10px;">Filtrer par catégorie</span>
+    <div class="cat-filters" id="catFilters" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; max-height: 220px; overflow-y: auto; padding-right: 4px;"></div>
+    <div class="catalog-grid" id="catalogGrid"></div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+      <div class="section-label reveal" data-i18n="testimonialsLabel" style="margin-bottom:0; flex:1;">Avis clients</div>
+      <button type="button" class="cta-btn" id="writeReviewBtn" style="padding:8px 16px; font-size:13px; background:var(--pink-deep);" data-i18n="writeReviewBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px; height:15px;"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span data-i18n="writeReviewBtnText">Donner mon avis</span>
+      </button>
+    </div>
+
+    <!-- Review Form Modal/Box -->
+    <div id="reviewFormBox" style="display:none; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-bottom:24px; max-width:560px;">
+      <h4 style="font-size:16px; margin-bottom:14px;" data-i18n="writeReviewTitle">Ajouter votre avis</h4>
+      <form id="addReviewForm">
+        <div class="field">
+          <label for="reviewAuthorInput" data-i18n="reviewAuthorLabel">Votre nom / Pseudonyme</label>
+          <input type="text" id="reviewAuthorInput" required placeholder="Votre nom" data-i18n-ph="reviewAuthorPh">
+        </div>
+        <div class="field">
+          <label data-i18n="reviewRatingLabel">Note</label>
+          <select id="reviewRatingInput" required style="width:100%; border-bottom:1px solid var(--line); padding:8px 0; background:transparent;">
+            <option value="5">★★★★★ (5/5)</option>
+            <option value="4">★★★★☆ (4/5)</option>
+            <option value="3">★★★☆☆ (3/5)</option>
+            <option value="2">★★☆☆☆ (2/5)</option>
+            <option value="1">★☆☆☆☆ (1/5)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="reviewTextInput" data-i18n="reviewTextLabel">Votre commentaire</label>
+          <textarea id="reviewTextInput" rows="3" required placeholder="Votre avis sur nos produits ou le service..." data-i18n-ph="reviewTextPh" style="width:100%; border:1px solid var(--line); border-radius:var(--radius); padding:10px; font-family:inherit; font-size:14px; background:transparent; outline:none; margin-top:4px;"></textarea>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:12px;">
+          <button type="button" id="cancelReviewBtn" class="close-overlay" style="background:var(--line); color:var(--ink);" data-i18n="cancelBtn">Annuler</button>
+          <button type="submit" class="submit-btn" style="width:auto; padding:10px 20px; font-size:13.5px;" data-i18n="submitReviewBtn">Publier mon avis</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Reviews Grid (Dynamic) -->
+    <div class="test-grid" id="reviewsGrid">
+      <!-- Real customer reviews injected here by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Product Detail Modal Overlay -->
+<div class="product-modal-overlay" id="productModalOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:1000; overflow-y:auto; padding:20px 10px; backdrop-filter:blur(4px);">
+  <div class="product-modal-card" style="background:var(--surface); border-radius:16px; max-width:920px; margin:0 auto; padding:24px; position:relative; box-shadow:0 20px 50px rgba(0,0,0,0.3); border:1px solid var(--line);">
+    <button type="button" id="closeProductModalBtn" style="position:absolute; top:16px; right:16px; background:var(--bg); border:1px solid var(--line); border-radius:50%; width:36px; height:36px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; color:var(--ink); z-index:10;">✕</button>
+
+    <div class="product-detail-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; align-items:start;">
+      <!-- Left: Image Gallery & Badges & Description -->
+      <div class="product-gallery-section">
+        <div style="background:var(--bg); border-radius:12px; border:1px solid var(--line); padding:16px; text-align:center; position:relative; min-height:260px; display:flex; align-items:center; justify-content:center;">
+          <span style="position:absolute; top:12px; left:12px; background:#10b981; color:#fff; font-size:11.5px; padding:4px 10px; border-radius:999px; font-weight:600;">✓ الكمية متوفرة</span>
+          <img id="pmMainImage" src="" alt="Product Image" style="max-width:100%; max-height:340px; object-fit:contain; border-radius:8px;">
+        </div>
+        
+        <!-- Thumbnails Gallery -->
+        <div id="pmThumbnails" style="display:flex; gap:8px; overflow-x:auto; margin-top:12px; padding-bottom:6px;"></div>
+
+        <!-- Full Product Description -->
+        <div style="margin-top:18px; border-top:1px solid var(--line); padding-top:14px;">
+          <h4 style="font-size:14px; font-weight:700; margin-bottom:8px; color:var(--ink);" data-i18n="pmDescHeading">Description du produit / وصف المنتج</h4>
+          <div id="pmDescriptionText" style="font-size:13px; color:var(--ink-soft); line-height:1.6; white-space:pre-line; max-height:220px; overflow-y:auto; padding-right:4px;"></div>
+        </div>
+      </div>
+
+      <!-- Right: Product Info & Dedicated Order Slip -->
+      <div class="product-order-section">
+        <div style="margin-bottom:14px;">
+          <span id="pmCategoryBadge" style="font-size:11.5px; color:var(--pink-deep); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;"></span>
+          <h2 id="pmTitle" style="font-size:20px; font-weight:700; margin:4px 0 6px 0; color:var(--ink); line-height:1.3;"></h2>
+          <p id="pmTagline" style="font-size:13px; color:var(--ink-soft); margin-bottom:10px;"></p>
+          <div style="font-size:22px; font-weight:800; color:var(--ink);" class="mono" id="pmPrice"></div>
+        </div>
+
+        <!-- Dedicated Order Slip Inside Modal -->
+        <div class="slip" style="box-shadow:none; border:1px solid var(--line); padding:16px; border-radius:12px; background:var(--surface);">
+          <div class="slip-head" style="margin-bottom:12px;">
+            <div>
+              <div class="section-label" style="margin-bottom:2px; font-size:11px;" data-i18n="orderFormLabel">Bon de commande</div>
+              <h3 style="font-size:15px; font-weight:700;" data-i18n="pmOrderHeading">Commander cet article</h3>
+            </div>
+            <div class="order-no"><span data-i18n="orderNoLabel">N°</span> <span id="pmOrderPreviewNo">------</span></div>
+          </div>
+
+          <form id="pmOrderForm">
+            <!-- Quantity Controls -->
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; background:var(--bg); padding:8px 12px; border-radius:8px; border:1px solid var(--line);">
+              <span style="font-size:13px; font-weight:600;" data-i18n="quantityLabel">Quantité :</span>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <button type="button" id="pmQtyMinus" style="width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--surface); cursor:pointer; font-size:16px; font-weight:bold; color:var(--ink);">-</button>
+                <span id="pmQtyVal" class="mono" style="font-size:15px; font-weight:700;">1</span>
+                <button type="button" id="pmQtyPlus" style="width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--surface); cursor:pointer; font-size:16px; font-weight:bold; color:var(--ink);">+</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="pmFullName"><span data-i18n="fieldName">Nom et prénom</span></label>
+              <input type="text" id="pmFullName" required placeholder="Nom et prénom">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="pmPhone"><span data-i18n="fieldPhone">Téléphone</span></label>
+                <input type="tel" id="pmPhone" required placeholder="05XX XX XX XX">
+              </div>
+              <div class="field">
+                <label for="pmWilaya"><span data-i18n="fieldWilaya">Wilaya</span></label>
+                <select id="pmWilaya" required style="width:100%; border-bottom:1px solid var(--line); padding:8px 0; background:transparent; font-family:inherit; font-size:13.5px;"></select>
+              </div>
+            </div>
+
+            <div class="delivery-toggle" style="margin-top:10px;">
+              <button type="button" class="delivery-opt active" id="pmDeliveryDomicile" data-i18n="domicileLabel">Domicile</button>
+              <button type="button" class="delivery-opt" id="pmDeliveryBureau" data-i18n="bureauLabel">Bureau (StopDesk)</button>
+            </div>
+
+            <div class="field" id="pmAddressField" style="margin-top:10px;">
+              <label for="pmCommune"><span data-i18n="fieldCommune">Commune / adresse</span></label>
+              <input type="text" id="pmCommune" placeholder="Commune, quartier, repère">
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="price-breakdown" style="border-top:1px dashed var(--line); margin-top:12px; padding-top:10px;">
+              <div class="shipping-row">
+                <span class="label" data-i18n="productsSubtotalLabel">Prix des produits</span>
+                <span class="amount mono" id="pmProductsSubtotalAmount">0 DA</span>
+              </div>
+              <div class="shipping-row">
+                <span class="label" data-i18n="shippingFeeLabel">Frais de livraison</span>
+                <span class="amount mono" id="pmShippingAmount">—</span>
+              </div>
+              <div class="not-deliverable mono" id="pmNotDeliverableMsg" style="display:none;" data-i18n="notDeliverableMsg">Livraison non disponible pour cette wilaya.</div>
+
+              <div class="total-row" style="margin-top:6px; padding-top:6px; border-top:1px solid var(--line);">
+                <span class="label" data-i18n="totalLabel">Total à payer à la livraison</span>
+                <span class="amount mono" id="pmTotalAmount">0 DA</span>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:8px; margin-top:14px;">
+              <button type="submit" class="submit-btn" style="flex:2; padding:12px;" id="pmSubmitOrderBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px; vertical-align:middle;"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+                <span data-i18n="submitBtn">Confirmer ma commande</span>
+              </button>
+              <button type="button" id="pmAddToCartBtn" class="cta-btn" style="flex:1; padding:12px 10px; font-size:13px; background:var(--ink); color:var(--surface); border:none; border-radius:var(--radius); font-weight:600; cursor:pointer;">
+                <span data-i18n="addCartModalText">+ Panier</span>
+              </button>
+            </div>
+            <div class="cod-note" data-i18n="codNote" style="margin-top:8px; text-align:center; font-size:11.5px;">Aucun paiement maintenant · vous payez à la réception du colis</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-label reveal" data-i18n="contactLabel">Contact</div>
+    <div class="contact-card reveal">
+      <div>
+        <h2 data-i18n="contactHeading">Une question avant de commander ?</h2>
+        <p data-i18n="contactText">Écris-nous directement, on répond rapidement.</p>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div><span class="clabel" data-i18n="contactPhoneLabel">Téléphone</span><span id="contactPhoneText">07 97 46 70 13</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.07-1.32A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.6-1.3 1.15-1.8 1.2-.46.05-1.04.07-1.68-.1-.39-.1-.9-.3-1.55-.58-2.73-1.18-4.5-3.95-4.63-4.13-.14-.18-1.1-1.46-1.1-2.79 0-1.32.7-1.97.94-2.24.24-.27.53-.34.7-.34l.5.01c.16 0 .38-.06.6.46.22.53.75 1.83.82 1.96.07.14.11.3.02.48-.09.18-.14.29-.28.45-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.2 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.53.72 1.79.85.26.13.43.2.5.31.07.12.07.65-.15 1.25z"/></svg>
+            <div><span class="clabel" data-i18n="contactWhatsappLabel">WhatsApp</span><span data-i18n="contactWhatsappSub">Réponse rapide, tous les jours</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><span class="clabel" data-i18n="contactZoneLabel">Zone de livraison</span><span data-i18n="contactZoneText">58 wilayas — tarifs indiqués à la commande</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-cta">
+        <a class="contact-whatsapp-btn" id="contactWhatsapp" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.07-1.32A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.6-1.3 1.15-1.8 1.2-.46.05-1.04.07-1.68-.1-.39-.1-.9-.3-1.55-.58-2.73-1.18-4.5-3.95-4.63-4.13-.14-.18-1.1-1.46-1.1-2.79 0-1.32.7-1.97.94-2.24.24-.27.53-.34.7-.34l.5.01c.16 0 .38-.06.6.46.22.53.75 1.83.82 1.96.07.14.11.3.02.48-.09.18-.14.29-.28.45-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.2 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.53.72 1.79.85.26.13.43.2.5.31.07.12.07.65-.15 1.25z"/></svg>
+          <span data-i18n="contactBtn">Écrire sur WhatsApp</span>
+        </a>
+        <div class="contact-hours" data-i18n="contactHours">Ouvert 24/7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+    <div>© 2026 Cha.Nechri — وش تحتاج كاين</div>
+    <a id="googleSheetLink" href="#" target="_blank" rel="noopener" style="display:none; align-items:center; gap:6px; background:#107c41; color:#ffffff; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:600; text-decoration:none; box-shadow:0 2px 5px rgba(0,0,0,0.15); transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+      <span>Google Sheets — Voir les commandes</span>
+    </a>
+  </div>
+</footer>
+
+<!-- cart modal -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart-panel">
+    <div class="cart-panel-head">
+      <h3 data-i18n="cartTitle">Mon panier</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-lines" id="cartLines"></div>
+    <div class="cart-panel-foot">
+      <div class="cart-subtotal-row"><span data-i18n="cartSubtotal">Sous-total</span><span id="cartSubtotalAmount">0 DA</span></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn" data-i18n="cartCheckoutBtn">Passer à la commande</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="confirm-card">
+    <div class="confirm-stamp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>
+    </div>
+    <h4 data-i18n="confirmHeading">Commande enregistrée</h4>
+    <p data-i18n="confirmText">Ta commande a été préparée et envoyée vers Google Sheets. Une fenêtre WhatsApp s'ouvre pour confirmer avec le vendeur.</p>
+    <div class="order-ref mono"><span data-i18n="confirmRefLabel">Référence :</span> <span id="finalOrderNo"></span></div>
+    <button class="close-overlay" id="closeOverlay" data-i18n="closeBtn">Fermer</button>
+  </div>
+</div>
+
+<button id="backToTop" class="back-to-top" aria-label="Retour en haut" title="Retour en haut" data-i18n-title="backToTop">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+  try {
+    const SUPABASE_URL = "https://0ec90b57d6e95fcbda19832f.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0Iiwicm9mIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw";
+    window.SUPABASE_URL = SUPABASE_URL;
+    window.SUPABASE_ANON_KEY = SUPABASE_ANON_KEY;
+    if (window.supabase && typeof window.supabase.createClient === 'function') {
+      window.sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } else {
+      window.sb = null;
+    }
+  } catch (err) {
+    console.warn("Supabase failed to initialize:", err);
+    window.sb = null;
+  }
+</script>
+<script type="module" src="./public/products_catalog.js"></script>
+<script type="module" src="./script.js"></script>
+
+</body>
+</html>

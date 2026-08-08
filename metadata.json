@@ -1,0 +1,6 @@
+{
+  "name": "Cha.Nchri Website",
+  "description": "Art & Store Website for Cha.Nchri",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
