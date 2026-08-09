@@ -512,9 +512,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "Trancheuse à légumes multifonctionnelle — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Trancheuse à légumes multifonctionnelle\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Trancheuse à légumes multifonctionnelle\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "Trancheuse à légumes multifonctionnelle\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Trancheuse à légumes multifonctionnelle\n• Grande ouverture d'insertion : fente large de 102×85 mm pour couper facilement gros légumes et pommes de terre.\n• Outil polyvalent : lames en acier inoxydable au design sécurisé, idéales pour fromage, pommes de terre, carottes, concombres, noix et biscuits.\n• Performance rapide : le tambour rotatif coupe 5 fois plus vite qu'une râpe classique, et jusqu'à 30 fois plus vite qu'un couteau.\n• Sûre et facile à nettoyer : pas besoin d'électricité, pas de contact avec les lames, démontable et peu encombrante.\n• Matériaux : PP + acier inoxydable. Couleur : vert.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Multifunctional Vegetable Slicer\n• Wide input feed: large 102×85 mm opening for easily slicing big vegetables and potatoes.\n• Versatile tool: stainless steel blades with a safe design, great for cheese, potatoes, carrots, cucumbers, nuts and biscuits.\n• Faster performance: the rotating drum cuts 5x faster than a traditional grater, and up to 30x faster than a knife.\n• Safe & easy to clean: no electricity needed, no contact with blades, detachable and compact.\n• Materials: PP + stainless steel. Color: green.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "مفرمة / مبشرة خضروات متعددة الوظائف\n• ميزة الإدخال الأوسع: فتحة كبيرة بحجم 102×85 ملم لتقطيع الخضروات والبطاطس الكبيرة بسهولة.\n• أداة متعددة الاستعمالات: شفرات من الفولاذ المقاوم للصدأ بتصميم آمن، مثالية للجبن، البطاطس، الجزر، الخيار، المكسرات، والبسكويت.\n• أداء أسرع: تصميم الأسطوانة الدوارة يقطع المكونات أسرع 5 مرات من المبشرات التقليدية وحتى 30 مرة أسرع من السكاكين العادية.\n• آمنة وسهلة التنظيف: لا حاجة للكهرباء ولا لمس الشفرات، قابلة للفك وتوفير مساحة.\n• المواد: PP + فولاذ مقاوم للصدأ. اللون: أخضر.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -728,9 +728,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "Réchaud à gaz de camping allumage automatique — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Réchaud à gaz de camping allumage automatique\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Réchaud à gaz de camping allumage automatique\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "Réchaud à gaz de camping allumage automatique\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Réchaud à gaz de camping à allumage automatique\n• Allumage rapide et facile : pas besoin de briquet, fonctionne par simple pression d'un bouton avec réglage facile de la chaleur.\n• Économique et puissant : puissance 2,9 kW, consommation de 155 g/h, combustion plus longue pour économiser temps et gaz.\n• Robuste et facile à nettoyer : métal revêtu et grille en acier inoxydable traitée au borax contre la rouille.\n• Pratique et portable : supporte des casseroles jusqu'à 10 pouces, idéal pour le camping, les grillades, la cuisine et les sacs d'urgence.\n• Sûr et certifié : verrou de sécurité, arrêt automatique, système d'éjection de la cartouche de gaz.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Automatic Ignition Camping Gas Stove\n• Fast, easy ignition: no lighter needed, works with a single button press and easy heat adjustment.\n• Economical & powerful: 2.9 kW power, 155 g/h consumption, longer burn time to save time and gas.\n• Durable & easy to clean: coated metal body and borax-treated stainless steel grid to resist rust.\n• Practical & portable: supports pots up to 10 inches, perfect for camping, grilling, cooking and emergency kits.\n• Safe & certified: safety lock, auto shut-off, and gas cartridge ejection system.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "موقد تخييم محمول بإشعال كهربائي Piezo\n• إشعال سريع وسهل: لا حاجة للولاعة، يعمل بزر واحد ويتيح ضبط الحرارة بسهولة.\n• اقتصادي وقوي: قدرة 2.9 كيلو واط، استهلاك 155 غرام/ساعة، مدة احتراق أطول وتوفير للوقت والغاز.\n• متين وسهل التنظيف: مصنوع من معدن مطلي وشبكة فولاذ مقاوم للصدأ مطلية بالبوراكس ضد الصدأ.\n• عملي ومتنقل: يتحمل قدور حتى 10 بوصات، مثالي للتخييم والشواء والطبخ وحقائب الطوارئ.\n• آمن ومعتمد: قفل أمان، إيقاف تلقائي، ونظام إخراج عبوة الغاز.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -752,9 +752,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "MACHINE À CAFÉ CAPSULES L'OR BARISTA ROUGE - PHILIPS — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "MACHINE À CAFÉ CAPSULES L'OR BARISTA ROUGE - PHILIPS\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "MACHINE À CAFÉ CAPSULES L'OR BARISTA ROUGE - PHILIPS\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "MACHINE À CAFÉ CAPSULES L'OR BARISTA ROUGE - PHILIPS\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Machine à café à capsules L'OR BARISTA Rouge - Philips\n• Puissance de 1450 W et réservoir d'eau de 1 litre.\n• Pression de pompe jusqu'à 19 bars pour une extraction optimale du café.\n• Pièces amovibles compatibles lave-vaisselle pour un entretien facile.\n• Réservoir d'eau amovible pour un remplissage pratique.\n• Possibilité de préparer deux tasses de café en même temps.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "L'OR BARISTA Red Capsule Coffee Machine - Philips\n• 1450 W power with a 1-liter water tank.\n• Pump pressure up to 19 bar for optimal coffee extraction.\n• Dishwasher-safe removable parts for easy cleaning.\n• Removable water tank for convenient refilling.\n• Can brew two cups of coffee at the same time.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "آلة تحضير القهوة L'OR BARISTA - PHILIPS\n• قدرة 1450 واط وخزان ماء بسعة 1 لتر.\n• ضغط مضخة يصل إلى 19 بار لاستخراج مثالي للقهوة.\n• قطع قابلة للغسل في غسالة الصحون لسهولة الصيانة.\n• خزان ماء قابل للإزالة لتعبئة مريحة.\n• إمكانية تحضير كوبين من القهوة في نفس الوقت.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -872,9 +872,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "Eminem Ensemble de cuisine 5 Pcs en verre pour épices et huiles — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Eminem Ensemble de cuisine 5 Pcs en verre pour épices et huiles\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Eminem Ensemble de cuisine 5 Pcs en verre pour épices et huiles\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "Eminem Ensemble de cuisine 5 Pcs en verre pour épices et huiles\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Ensemble de cuisine 5 pièces en verre avec support\n• Comprend : 2 bouteilles pour huiles + 2 bouteilles pour épices + 1 support dédié.\n• Design pratique et élégant : garde votre cuisine bien rangée et facilite l'usage quotidien.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "5-Piece Glass Kitchen Set with Stand\n• Includes: 2 oil bottles + 2 spice bottles + 1 dedicated stand.\n• Practical, elegant design: keeps your kitchen organized and makes daily use easier.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "طقم زجاجات مطبخ 5 قطع مع حامل\n• يحتوي على: 2 زجاجة للزيوت + 2 زجاجة للتوابل + 1 حامل مخصص للزجاجات.\n• تصميم عملي وأنيق: يحافظ على ترتيب المطبخ ويسهل الاستخدام اليومي.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -3056,9 +3056,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "مقوي سرعة الأنترنت — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Amplificateur de signal SMA Pour Modem 4G LTE\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Amplificateur de signal SMA Pour Modem 4G LTE\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "مقوي سرعة الأنترنت\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Antenne 4G externe haute performance pour booster le signal\n• Conçue pour améliorer le signal des routeurs et modems Wi-Fi.\n• Compatible avec les connecteurs SMA / CRC9 / TS-9.\n• Augmente la puissance du signal jusqu'à 50%.\n• Idéale pour les zones éloignées ou mal couvertes.\n• Installation murale ou de bureau facile et rapide, sans logiciel.\n• Large bande de fréquence de 700 à 2700 MHz.\n• Câble de 2 mètres, robuste et résistant au vent jusqu'à 60 m/s.\n• Dimensions : 235×120×71 mm.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "High-Performance External 4G Signal Booster Antenna\n• Designed to improve router and Wi-Fi modem signal.\n• Compatible with SMA / CRC9 / TS-9 connectors.\n• Boosts signal strength by up to 50%.\n• Ideal for remote or low-coverage areas.\n• Easy, quick wall or desktop mounting, no software needed.\n• Wide frequency range from 700 to 2700 MHz.\n• 2-meter cable, sturdy and wind-resistant up to 60 m/s.\n• Dimensions: 235×120×71 mm.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "هوائي 4G خارجي عالي الأداء لتعزيز قوة الإشارة\n• مصمم لتحسين إشارة أجهزة الراوتر والواي فاي.\n• يدعم موصلات SMA / CRC9 / TS-9.\n• يعزز قوة الإشارة بنسبة تصل إلى 50%.\n• مناسب للمناطق البعيدة أو ضعيفة التغطية.\n• تركيب جداري أو مكتبي سهل وسريع بدون برامج.\n• نطاق تردد واسع من 700 إلى 2700 ميغاهرتز.\n• كابل بطول 2 متر، متين ومقاوم للرياح حتى سرعة 60 م/ث.\n• الأبعاد: 235×120×71 ملم.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -6152,9 +6152,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "لوحة مفاتيح ميكانيكية — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Clavier Mécanique Ajazz AK820 Pro Black avec Écran TFT et Structure Gasket\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Clavier Mécanique Ajazz AK820 Pro Black avec Écran TFT et Structure Gasket\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "لوحة مفاتيح ميكانيكية\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Clavier mécanique Ajazz AK820 Pro Black avec écran TFT et structure Gasket\n• Écran TFT intelligent et interactif : affiche l'état de la batterie, la date et l'heure, le type de connexion et le système d'exploitation, avec animations et effets lumineux personnalisables.\n• Format compact 75% et professionnel : équilibre parfait entre gain de place sur le bureau et look élégant.\n• Connectivité tri-mode : Bluetooth 5.1 rapide, sans fil 2,4 GHz, ou câble Type-C, avec batterie 4000 mAh longue durée.\n• Structure Gasket-Mount : isole les vibrations et réduit le bruit pour une frappe douce et confortable.\n• Rétroéclairage RGB 1,6 million de couleurs, entièrement compatible Windows et Mac.\n• Caractéristiques : clavier mécanique 75% | batterie rechargeable 4000 mAh | Bluetooth 5.1 / sans fil 2,4G / filaire Type-C | écran TFT personnalisable.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Ajazz AK820 Pro Black Mechanical Keyboard with TFT Screen and Gasket Structure\n• Smart interactive TFT screen: shows battery status, date and time, connection type and OS, with customizable animations and lighting effects.\n• 75% compact, professional layout: perfect balance between desk space and sleek looks.\n• Tri-mode connectivity: fast Bluetooth 5.1, 2.4GHz wireless, or Type-C cable, with a long-lasting 4000mAh battery.\n• Gasket-Mount structure: isolates vibrations and reduces noise for a soft, comfortable typing feel.\n• RGB backlighting with 1.6 million colors, fully compatible with Windows and Mac.\n• Specs: 75% mechanical keyboard | 4000mAh rechargeable battery | Bluetooth 5.1 / 2.4G wireless / Type-C wired | customizable TFT screen.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "لوحة مفاتيح ميكانيكية Ajazz AK820 Pro Black بشاشة TFT وهيكل Gasket\n• شاشة TFT تفاعلية ذكية: تعرض حالة البطارية والتاريخ والوقت ونوع الاتصال ونظام التشغيل، مع إمكانية تخصيص الصور المتحركة وتأثيرات الإضاءة.\n• تصميم 75% مدمج واحترافي: توازن مثالي بين استغلال مساحة المكتب والمظهر الأنيق.\n• اتصال ثلاثي الأوضاع: بلوتوث 5.1 السريع، أو لاسلكي 2.4 جيجاهرتز، أو كابل Type-C، ببطارية 4000 مللي أمبير.\n• هيكل Gasket-Mount: يعزل الاهتزازات ويقلل الضوضاء لضغطات مفاتيح ناعمة ومريحة.\n• إضاءة RGB بـ1.6 مليون لون، متوافقة بالكامل مع Windows وMac.\n• المواصفات: مفاتيح ميكانيكية 75% | بطارية 4000 مللي أمبير قابلة لإعادة الشحن | اتصال بلوتوث 5.1 / لاسلكي 2.4G / سلكي Type-C | شاشة TFT قابلة للتخصيص.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -6200,9 +6200,9 @@ export const PRODUCTS_CATALOG = [
       "ar": "لوحة مفاتيح المغناطيسية — الدفع عند الاستلام في جميع الـ 58 ولاية"
     },
     "description": {
-      "fr": "Clavier Gaming Magnétique ATTACK SHARK X68HE 60% avec Rapid Trigger et 8000Hz\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).\n• Garantie de satisfaction et produit conforme aux photos.",
-      "en": "Clavier Gaming Magnétique ATTACK SHARK X68HE 60% avec Rapid Trigger et 8000Hz\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
-      "ar": "لوحة مفاتيح المغناطيسية\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
+      "fr": "Clavier gaming magnétique ATTACK SHARK X68HE 60% avec Rapid Trigger et 8000Hz\n• Switches magnétiques Hall Effect avec fonction RT : jusqu'à 4 fonctions par touche, point d'activation réglable de 0,1 à 3,4 mm avec une précision de 0,01 mm — idéal pour les FPS comme Valorant.\n• Performance ultra-rapide à 8000 Hz : latence d'entrée de seulement 0,125 ms pour une réactivité instantanée.\n• Structure Top Mount et expérience sonore premium : plaque en aluminium oxydé avec double couche PORON pour une frappe silencieuse et un son \"HiFi\" satisfaisant.\n• Rétroéclairage RGB South-facing 16,8 millions de couleurs et keycaps PBT double injection aux lettres indélébiles.\n• Format compact 66 touches avec flèches séparées, bascule rapide Windows/Mac, câble Type-C détachable.\n• Programmable via navigateur web, sans logiciel à installer.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "ATTACK SHARK X68HE 60% Magnetic Gaming Keyboard with Rapid Trigger and 8000Hz\n• Hall Effect magnetic switches with RT function: assign up to 4 functions per key, adjustable actuation point from 0.1 to 3.4mm with 0.01mm precision — ideal for FPS games like Valorant.\n• Ultra-fast 8000Hz performance: only 0.125ms input latency for instant response.\n• Top Mount structure and premium acoustics: oxidized aluminum plate with dual PORON layers for a quiet typing feel and satisfying \"HiFi\" sound.\n• South-facing RGB backlighting with 16.8 million colors and double-shot PBT keycaps with fade-proof legends.\n• Compact 66-key layout with separate arrow keys, one-button Windows/Mac switching, detachable Type-C cable.\n• Programmable via web browser, no software installation needed.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "لوحة ألعاب مغناطيسية ATTACK SHARK X68HE 60% بتقنية Rapid Trigger وسرعة 8000 هرتز\n• مفاتيح مغناطيسية بتقنية Hall Effect ووظيفة RT: تتيح تعيين 4 وظائف لمفتاح واحد، مع نقطة تفعيل قابلة للتعديل من 0.1 إلى 3.4 ملم بدقة 0.01 ملم — مثالية لألعاب FPS مثل Valorant.\n• أداء فائق السرعة 8000 هرتز: تأخير إدخال 0.125 مللي ثانية فقط لاستجابة فورية.\n• هيكل Top Mount وتجربة صوتية فاخرة: لوحة تموضع من الألومنيوم المؤكسد مع طبقتين PORON لطباعة هادئة وصوت \"HiFi\" مرضٍ.\n• إضاءة RGB جنوبية بـ16.8 مليون لون وأغطية مفاتيح PBT مزدوجة الحقن بحروف لا تنمحي.\n• تصميم مدمج 66 مفتاحاً مع أسهم منفصلة، تبديل سريع بين Windows وMac، وكابل Type-C قابل للفصل.\n• برمجة عبر متصفح الويب دون الحاجة لتثبيت برامج.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
     }
   },
   {
@@ -32907,7 +32907,258 @@ export const PRODUCTS_CATALOG = [
       "en": "Women's Elegant Braided Leather Backpack with Convertible Shoulder Strap\n• Elegant braided design: modern, refined look thanks to the braided texture of the royal black leather, finished with gold metal details.\n• 2-in-1 use: wear it as a comfortable backpack or switch it to a shoulder bag with the removable strap, to match any daily outfit.\n• Waterproof high-quality PU leather: resists water and wear, keeping your belongings protected in any weather.\n• Spacious, well-organized storage: main compartment with double zip for phone, wallet and tablet, plus side pockets and front zips for quick access.\n• Comfortable, lightweight straps: padded shoulder straps that distribute weight evenly, with a reinforced top handle.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.\n• Satisfaction guaranteed & quality assured.",
       "ar": "حقيبة ظهر جلدية نسائية بتصميم مجدول فاخر مع حزام كتف قابل للتحويل\n• تصميم فاخر بنقشة جلدية مجدولة: مظهر عصري راقٍ يعتمد على الملمس المجدول الأنيق للجلد باللون الأسود الملكي، مكملة بشعار وتفاصيل معدنية باللون الذهبي.\n• استخدام متعدد ومرن (2 في 1): تُحمل كحقيبة ظهر مريحة، أو تتحول بسهولة إلى حقيبة كتف بفضل حزام الكتف الإضافي القابل للإزالة.\n• جلد صناعي عالي الجودة ومقاوم للماء: يحافظ على رونق الحقيبة ويحمي محتوياتك الشخصية في مختلف الظروف الجوية.\n• سعة تخزين واسعة وتنظيم ذكي: مقصورة رئيسية واسعة بسحاب علوي مزدوج، إضافة إلى جيوب جانبية وسحابات أمامية عملية.\n• حوامل مريحة وخفيفة الوزن: أحزمة ظهر متينة ومريحة، مع مقبض علوي قوي لسهولة الحمل باليد.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية.\n• جودة عالية ومطابقة للمواصفات."
     }
+  },
+  {
+    "id": "tapis-electrique-chauffant-silicone-alimentaire",
+    "categoryId": "maison",
+    "basePrice": 5250,
+    "image": "https://sawa9ly.app/storage/68229/Warm-Mat-cnc.jpg",
+    "images": [
+      "https://sawa9ly.app/storage/68229/Warm-Mat-cnc.jpg",
+      "https://sawa9ly.app/storage/68230/Warm-Mat-4.jpg",
+      "https://sawa9ly.app/storage/68231/Warm-Mat-6.jpg",
+      "https://sawa9ly.app/storage/68232/Warm-Mat-1.jpg",
+      "https://sawa9ly.app/storage/68233/Warm-Mat-9.jpg"
+    ],
+    "name": {
+      "fr": "Tapis électrique chauffant en silicone alimentaire à température réglable",
+      "en": "Adjustable Temperature Food-Safe Silicone Heating Mat",
+      "ar": "بساط تسخين كهربائي ذكي لحفظ الطعام دافئًا"
+    },
+    "tagline": {
+      "fr": "Tapis électrique chauffant en silicone alimentaire à température réglable — Paiement à la livraison dans les 58 wilayas",
+      "en": "Adjustable Temperature Food-Safe Silicone Heating Mat — Cash on delivery across 58 wilayas",
+      "ar": "بساط تسخين كهربائي ذكي لحفظ الطعام دافئًا — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Tapis électrique chauffant en silicone alimentaire à température réglable\n• Chauffe rapide et homogène : chauffe en seulement 10 secondes, avec une répartition uniforme de la chaleur sur toute la surface.\n• 3 niveaux de température réglables : 60°C, 80°C et 100°C pour un contrôle total selon le type d'aliment.\n• Dimensions généreuses : 60 × 38 cm, idéal pour plusieurs plats en même temps.\n• Silicone nano haute qualité : résistant à l'eau, aux taches, à la graisse, durable et facile à nettoyer.\n• Pliable et compact : se range facilement, peut se glisser dans un sac, arrêt automatique après 3 heures pour plus de sécurité.\n• Économique : consommation très faible, sans surconsommation électrique.\n• Usages multiples : décongélation rapide, réchauffage du lait, chauffe-masques, et bien plus.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Adjustable Temperature Food-Safe Silicone Heating Mat\n• Fast, even heating: heats up in just 10 seconds, with uniform heat distribution across the whole surface.\n• 3 adjustable heat levels: 60°C, 80°C and 100°C for full control based on the type of food.\n• Generous size: 60 × 38 cm, perfect for several dishes at once.\n• High-quality nano silicone: water-resistant, stain and grease resistant, durable and easy to clean.\n• Foldable and compact: easy to store, fits inside a bag, auto shut-off after 3 hours for extra safety.\n• Energy-efficient: very low consumption, no excess electricity use.\n• Multiple uses: quick defrosting, warming milk, heating face masks, and more.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "بساط تسخين كهربائي ذكي – حافظ على طعامك دافئًا دائمًا\nودّع الأطباق الباردة واستمتع بوجباتك ساخنة كما تحب!\nبساط التسخين الكهربائي يمنحك حرارة سريعة ومتوازنة للحفاظ على الطعام بدرجة مثالية لفترة طويلة.\n🌡️ تحكم دقيق في درجة الحرارة: سرعة تسخين فائقة خلال 10 ثوانٍ فقط، مع توزيع حراري متساوٍ. 3 مستويات حرارة قابلة للتعديل: 60° / 80° / 100° مئوية.\n📏 الأبعاد: 60 × 38 سم، مساحة واسعة تناسب عدة أطباق في نفس الوقت.\n🛡️ خامة سيليكون نانو عالية الجودة: مقاومة للماء والبقع والدهون، متينة وسهلة التنظيف وقابلة للطي والتخزين.\n⚡ استهلاك اقتصادي للطاقة، مع إيقاف تلقائي بعد 3 ساعات لضمان الأمان.\n🏠 استخدامات متعددة: تسريع الذوبان، تدفئة الحليب، تدفئة أقنعة الوجه، وأكثر.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "presse-agrumes-main-aluminium-jus-fruits",
+    "categoryId": "maison",
+    "basePrice": 2500,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5014/71uRpBzlRqL._SL1500_.jpg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5014/71uRpBzlRqL._SL1500_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5015/71jfNii5eOL._SL1500_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5016/7143XUCjolS._SL1200_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5017/61QLYj91s7S._SL1200_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5018/61Scq6mvNS._SL1190_.jpg"
+    ],
+    "name": {
+      "fr": "Presse-agrumes à main en aluminium pour Jus de fruits",
+      "en": "Aluminum Hand Citrus Juicer for Fresh Juice",
+      "ar": "عصارة يدوية من الألمنيوم لعصير طازج"
+    },
+    "tagline": {
+      "fr": "Presse-agrumes à main en aluminium pour Jus de fruits — Paiement à la livraison dans les 58 wilayas",
+      "en": "Aluminum Hand Citrus Juicer for Fresh Juice — Cash on delivery across 58 wilayas",
+      "ar": "عصارة يدوية من الألمنيوم لعصير طازج — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Presse-agrumes à main en aluminium pour jus de fruits\n• Fonctionne par simple levier pour un jus sain et frais, rapidement et sans bruit.\n• Toutes les pièces sont démontables pour un nettoyage facile.\n• Design ergonomique avec poignée robuste et légère, pressage sans effort.\n• Fabriqué en alliage d'aluminium de haute qualité, résistant à la corrosion et durable.\n• Dimensions : 22 × 11,5 × 10 cm — Couleur : argenté.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Aluminum Hand Citrus Juicer for Fresh Juice\n• Simple lever mechanism for healthy, fresh juice, quickly and quietly.\n• All parts are removable for easy cleaning.\n• Ergonomic design with a sturdy, lightweight handle for effortless pressing.\n• Made from high-quality aluminum alloy, corrosion-resistant and durable.\n• Dimensions: 22 × 11.5 × 10 cm — Color: silver.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "عصارة يدوية من سبائك الألمنيوم\nتعمل بمبدأ الرافعة البسيطة لإنتاج عصير صحي وطازج بسرعة وبدون ضوضاء.\nجميع الأجزاء قابلة للإزالة لسهولة التنظيف.\nتصميم مريح مع مقبض قوي وخفيف لسهولة العصر بدون جهد.\nمصنوعة من سبيكة ألومنيوم عالية الجودة مقاومة للتآكل ومتينة للصحة.\nالحجم: 22 × 11.5 × 10 سم – اللون: فضي.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "milkshake-batteur-oeufs-usb-rechargeable",
+    "categoryId": "maison",
+    "basePrice": 1750,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7255/9f8d2fd6-2105-4d1c-ae28-dc38b6c52f82.jpeg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7255/9f8d2fd6-2105-4d1c-ae28-dc38b6c52f82.jpeg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7256/S233904eea7334bf2acfde13a53a0c1856.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7257/S8cac84f43c9e482ca35bca55e524da23Y.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7258/Se15c0977b9fc45b7828e205dc639d6e8R.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/7259/S233904eea7334bf2acfde13a53a0c1856-1.jpg"
+    ],
+    "name": {
+      "fr": "Milk shake et batteur à oeufs électrique USB Rechargeable",
+      "en": "USB Rechargeable Electric Milk Frother & Egg Beater",
+      "ar": "خلاط كهربائي USB لخفق البيض والمشروبات"
+    },
+    "tagline": {
+      "fr": "Milk shake et batteur à oeufs électrique USB Rechargeable — Paiement à la livraison dans les 58 wilayas",
+      "en": "USB Rechargeable Electric Milk Frother & Egg Beater — Cash on delivery across 58 wilayas",
+      "ar": "خلاط كهربائي USB لخفق البيض والمشروبات — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Milk shake et batteur à œufs électrique USB rechargeable\n• Batterie longue durée : batterie intégrée 1200 mAh, jusqu'à 90 minutes d'utilisation après charge complète.\n• 3 vitesses réglables selon vos besoins.\n• Multi-usage : idéal pour café, cappuccino, latte, chocolat chaud et sauces comme le ketchup.\n• Facile à démonter : livré avec 2 têtes de mélange interchangeables, utilisable aussi pour fouetter crème et œufs.\n• Fabrication robuste : ABS + PC + acier inoxydable.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "USB Rechargeable Electric Milk Frother & Egg Beater\n• Long-lasting battery: built-in 1200mAh battery, up to 90 minutes of use on a full charge.\n• 3 adjustable speeds to suit your needs.\n• Multi-purpose: great for coffee, cappuccino, latte, hot chocolate and sauces like ketchup.\n• Easy to disassemble: comes with 2 interchangeable mixing heads, also great for whipping cream and eggs.\n• Sturdy build: ABS + PC + stainless steel.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "الخلاط الكهربائي (خافق البيض والمشروبات)\nبطارية عالية السعة: مزود ببطارية مدمجة سعة 1200 مللي أمبير، يمكن استخدام الخافق لمدة تصل إلى 90 دقيقة بعد الشحن الكامل.\n3 سرعات: يمكن ضبط سرعة الخلط لتلبية احتياجاتك المختلفة بسهولة.\nمتعدد الاستخدامات: مناسب للقهوة، الكابتشينو، اللاتيه، الشوكولاتة الساخنة، والصلصات مثل الكاتشب.\nسهل الفك والتركيب: يأتي مع رأسين للخلط يمكن تبديلهما بسهولة ويستخدم أيضاً لخفق الكريمة والبيض.\nجودة تصنيع عالية: مصنوع من مواد ABS وPC وفولاذ مقاوم للصدأ متينة وعالية الأداء.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "robinet-filtre-eau-cuisine-anti-rouille",
+    "categoryId": "maison",
+    "basePrice": 2500,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4850/945537582394c147f4594e3fa4285c1bac22b476_1024_1024.jpeg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4850/945537582394c147f4594e3fa4285c1bac22b476_1024_1024.jpeg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4851/WhatsApp-Image-2022-09-03-at-6.08.16-PM-3.jpeg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4852/WhatsApp-Image-2022-09-03-at-6.08.18-PM.jpeg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4853/WhatsApp-Image-2022-09-03-at-6.08.18-PM-2.jpeg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4854/WhatsApp-Image-2022-09-03-at-6.08.17-PM-2.jpeg"
+    ],
+    "name": {
+      "fr": "Robinet Filtre à eau cuisine, pour l'élimination de la rouille et des bactéries Le Chlore Et Les Matières Organiques",
+      "en": "Kitchen Faucet Water Filter — Removes Rust, Bacteria, Chlorine & Organic Matter",
+      "ar": "فلتر مياه للمطبخ لإزالة الصدأ والبكتيريا والكلور"
+    },
+    "tagline": {
+      "fr": "Robinet Filtre à eau cuisine, pour l'élimination de la rouille et des bactéries Le Chlore Et Les Matières Organiques — Paiement à la livraison dans les 58 wilayas",
+      "en": "Kitchen Faucet Water Filter — Removes Rust, Bacteria, Chlorine & Organic Matter — Cash on delivery across 58 wilayas",
+      "ar": "فلتر مياه للمطبخ لإزالة الصدأ والبكتيريا والكلور — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Robinet filtre à eau de cuisine, élimine la rouille, les bactéries, le chlore et les matières organiques\n• Double système d'eau, sans électricité, sans éclaboussures.\n• Filtration précise en 9 étapes pour une purification en profondeur.\n• Nouvelle génération de filtres composites, filtration intelligente qui conserve les minéraux.\n• Compact avec un débit élevé jusqu'à 2 litres/minute.\n• Filtre céramique lavable et réutilisable.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Kitchen Faucet Water Filter — Removes Rust, Bacteria, Chlorine & Organic Matter\n• Dual water system, no electricity needed, no splashing.\n• Precise 9-stage filtration for deep purification.\n• New-generation composite filters, smart filtration that retains minerals.\n• Compact size with high flow rate up to 2 liters/minute.\n• Washable, reusable ceramic filter.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "الميزات:\nنظام ماء مزدوج، بدون كهرباء، بدون تناثر للماء.\nترشيح دقيق بتسع مراحل لتنقية عميقة.\nجيل جديد من الفلاتر المركبة، ترشيح ذكي مع الاحتفاظ بالمعادن.\nحجم صغير وتدفق كبير يصل إلى 2 لتر/دقيقة.\nيمكن غسل الفلتر السيراميكي وإعادة استخدامه.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "coupe-legumes-manuel-polyvalent",
+    "categoryId": "maison",
+    "basePrice": 2000,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4690/38-cm-2023-01-15T153722.645.jpg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4690/38-cm-2023-01-15T153722.645.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4691/61X2N55GZrL._SL1500_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4692/38-cm-2023-01-15T153255.618.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4693/61ihVQCm1RL._SL1500_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4694/615SvCFlvaL._SL1500_.jpg"
+    ],
+    "name": {
+      "fr": "Coupe- légumes manuel polyvalent",
+      "en": "Multi-Function Manual Potato & Vegetable Cutter",
+      "ar": "أداة تقطيع البطاطس والخضروات متعددة الاستخدامات"
+    },
+    "tagline": {
+      "fr": "Coupe- légumes manuel polyvalent — Paiement à la livraison dans les 58 wilayas",
+      "en": "Multi-Function Manual Potato & Vegetable Cutter — Cash on delivery across 58 wilayas",
+      "ar": "أداة تقطيع البطاطس والخضروات متعددة الاستخدامات — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Coupe-légumes manuel polyvalent\n• Outil élégant pour couper les pommes de terre en tranches, bâtonnets, chips, ou les réduire en purée.\n• Fabriqué en plastique brut de haute qualité, sûr à l'utilisation.\n• Design doux et sécurisé pour une bonne prise en main.\n• Un outil pratique et essentiel en cuisine pour préparer facilement différentes recettes de pommes de terre.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Multi-Function Manual Potato & Vegetable Cutter\n• Elegant tool for cutting potatoes into slices, sticks, chips, or mashing them.\n• Made from high-quality raw plastic, safe to use.\n• Soft, secure grip design.\n• A practical, essential kitchen tool for easily preparing different potato recipes.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "أداة تقطيع البطاطس\nأداة أنيقة لتقطيع البطاطس إلى شرائح أو أصابع أو رقائق أو لهرس البطاطس.\nمصنوعة من بلاستيك خام عالي الجودة وآمن في الاستخدام.\nتصميم ناعم وآمن للإمساك به.\nأداة عملية وأساسية في المطبخ لتحضير وصفات البطاطس المختلفة بسهولة.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "techwood-robot-petrin-12l-2000w-tro-1226",
+    "categoryId": "maison",
+    "basePrice": 46500,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4541/38-cm-22.jpg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4541/38-cm-22.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4542/techwood-robot-1.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4543/techwood-robot.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/4544/techwood-petrin.jpg"
+    ],
+    "name": {
+      "fr": "Techwood Robot Pétrin Professionel 12L 2000W TRO-1226",
+      "en": "Techwood TRO-1226 Professional 12L 2000W Stand Mixer",
+      "ar": "عجانة احترافية Techwood سعة 12 لتر بقوة 2000 واط"
+    },
+    "tagline": {
+      "fr": "Techwood Robot Pétrin Professionel 12L 2000W TRO-1226 — Paiement à la livraison dans les 58 wilayas",
+      "en": "Techwood TRO-1226 Professional 12L 2000W Stand Mixer — Cash on delivery across 58 wilayas",
+      "ar": "عجانة احترافية Techwood سعة 12 لتر بقوة 2000 واط — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Robot pétrin professionnel Techwood TRO-1226, 12L, 2000W\n• Le choix idéal pour les passionnés de pâtisserie et de confiserie.\n• Moteur puissant de 2000W avec base fixe antidérapante.\n• Bol en acier inoxydable de 12L pour préparer de grandes quantités facilement.\n• 6 vitesses, avec crochets pétrisseurs et fouets, couvercle transparent avec trappe d'ajout.\n• Design pratique adapté à toutes les cuisines, facile d'entretien.\n• Caractéristiques : Marque Techwood | Référence TRO-1226 | Puissance 2000W | Capacité 12L | Lame en acier inoxydable | Dimensions 24,6 × 31,5 cm.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Techwood TRO-1226 Professional Stand Mixer, 12L, 2000W\n• The ideal choice for pastry and baking enthusiasts.\n• Powerful 2000W motor with a non-slip fixed base.\n• 12L stainless steel bowl for easily preparing large quantities.\n• 6 speeds, with dough hooks and whisks, transparent lid with an add-in chute.\n• Practical design that fits any kitchen, easy to maintain.\n• Specs: Brand Techwood | Model TRO-1226 | Power 2000W | Capacity 12L | Stainless steel blade | Dimensions 24.6 × 31.5 cm.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "عجانة 12 لتر – قوة 2000 واط – من Techwood TRO-1226\nإذا كنت من عشاق المعجنات والحلويات فهذا الجهاز هو خيارك المثالي.\nمحرك قوي 2000 واط مع قاعدة ثابتة مقاومة للانزلاق.\nوعاء من الستانلس ستيل سعة 12 لتر لتحضير كميات كبيرة بسهولة.\n6 سرعات، مع خطافات عجن وخفق، غطاء شفاف بفتحة إضافة.\nتصميم عملي يناسب كل المطابخ وسهل الصيانة.\nالمواصفات: الماركة Techwood | المرجع TRO-1226 | القوة 2000 واط | السعة 12 لتر | خامة الشفرة ستانلس ستيل | الأبعاد 24.6 × 31.5 سم.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "mini-melangeur-electrique-fouet-cafe",
+    "categoryId": "maison",
+    "basePrice": 680,
+    "image": "https://sawaqli.fra1.cdn.digitaloceanspaces.com/22758/Mousseur-cnc.jpg",
+    "images": [
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/22758/Mousseur-cnc.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5060/%D8%A7%D9%84%D9%81%D9%88%D9%84%D8%A7%D8%B0-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%88%D9%85-%D9%84%D9%84%D8%B5%D8%AF%D8%A3-17.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5061/ca1040d383dd7cfcf698c61245519281.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5062/51doZAgNV8L._AC_SY679_.jpg",
+      "https://sawaqli.fra1.cdn.digitaloceanspaces.com/5063/WhatsApp-Image-2022-05-22-at-16.38.39-1.jpeg"
+    ],
+    "name": {
+      "fr": "Mini mélangeur électrique fouet à café mousseur fouet batteur à oeufs",
+      "en": "Mini Electric Milk Frother & Egg Whisk",
+      "ar": "خفّاق بيض كهربائي صغير للقهوة والمشروبات"
+    },
+    "tagline": {
+      "fr": "Mini mélangeur électrique fouet à café mousseur fouet batteur à oeufs — Paiement à la livraison dans les 58 wilayas",
+      "en": "Mini Electric Milk Frother & Egg Whisk — Cash on delivery across 58 wilayas",
+      "ar": "خفّاق بيض كهربائي صغير للقهوة والمشروبات — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Mini mélangeur électrique / fouet à café mousseur et batteur à œufs\n• Nom du produit : fouet à œufs électrique.\n• Matériau : PP + acier inoxydable.\n• Type de pile : 2 piles AA (non incluses).\n• Points forts : électrique, facile à utiliser, durable.\n• Dimensions : 21 × 5 × 4,5 cm.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Mini Electric Milk Frother & Egg Whisk\n• Product: electric egg whisk.\n• Material: PP + stainless steel.\n• Battery type: 2× AA batteries (not included).\n• Highlights: electric, easy to use, durable.\n• Dimensions: 21 × 5 × 4.5 cm.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "اسم المنتج: خفّاق بيض كهربائي\nالمادة: PP + ستانلس ستيل\nنوع البطارية: 2 بطاريات AA (غير مشمولة)\nالمميزات: كهربائي – سهل الاستخدام – متين\nالحجم: 21 × 5 × 4.5 سم\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "clavier-mecanique-gaming-65-compact-hotswap",
+    "categoryId": "tech",
+    "basePrice": 112500,
+    "image": "https://sawa9ly.app/storage/73980/1780489544284-s779oz.jpg",
+    "images": [
+      "https://sawa9ly.app/storage/73980/1780489544284-s779oz.jpg",
+      "https://sawa9ly.app/storage/73981/1780483838059_ao9n4lfq_7_4b51f95b-9366-4fdf-ae72-12799de2aeb0.webp",
+      "https://sawa9ly.app/storage/73982/1780483838845_flrahkwk_71csuog0upl._ac_sl1500_.jpg",
+      "https://sawa9ly.app/storage/73983/1780483838868_77dow7bl_81iqfsgqwnl._ac_sl1500_.jpg",
+      "https://sawa9ly.app/storage/73984/1780483838855_lchu02cb_81dnvfyfrpl._ac_sl1500_.jpg"
+    ],
+    "name": {
+      "fr": "Clavier Mécanique Gaming 65% Compact Filaire avec Hotswap et Rétroéclairage Rainbow",
+      "en": "65% Compact Wired Mechanical Gaming Keyboard with Hotswap and Rainbow Backlight",
+      "ar": "لوحة مفاتيح ميكانيكية للألعاب 65% سلكية بتبديل سريع وإضاءة قوس قزح"
+    },
+    "tagline": {
+      "fr": "Clavier Mécanique Gaming 65% Compact Filaire avec Hotswap et Rétroéclairage Rainbow — Paiement à la livraison dans les 58 wilayas",
+      "en": "65% Compact Wired Mechanical Gaming Keyboard with Hotswap and Rainbow Backlight — Cash on delivery across 58 wilayas",
+      "ar": "لوحة مفاتيح ميكانيكية للألعاب 65% سلكية بتبديل سريع وإضاءة قوس قزح — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Clavier mécanique gaming 65% compact filaire avec Hotswap et rétroéclairage Rainbow\n• Format compact 68 touches : le format filaire 65% libère de l'espace sur le bureau tout en restant facile à transporter.\n• Connexion filaire fiable : signal stable, supérieur aux connexions sans fil.\n• Support complet du Hot-Swap : compatible avec la plupart des switches 3 broches du marché, personnalisation libre à tout moment.\n• Anti-Ghosting et insonorisation EVA : réponse rapide et précise pour le gaming ou la frappe intensive.\n• Rétroéclairage Rainbow et keycaps UV : 19 designs de couleurs différents à basculer rapidement.\n• Entièrement programmable : macros et fonctions personnalisables, compatible Windows, Mac, Android et Linux.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "65% Compact Wired Mechanical Gaming Keyboard with Hotswap and Rainbow Backlight\n• Compact 68-key layout: the 65% wired format frees up desk space while staying easy to carry.\n• Reliable wired connection: stable signal, better than wireless.\n• Full Hot-Swap support: compatible with most 3-pin switches on the market, freely customizable at any time.\n• Anti-Ghosting and EVA sound dampening: fast, precise response for gaming or heavy typing.\n• Rainbow backlighting and UV-coated keycaps: 19 different color modes to quickly switch between.\n• Fully programmable: customizable macros and functions, compatible with Windows, Mac, Android and Linux.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "تصميم مدمج بـ 68 مفتاحاً: توفر لوحة المفاتيح السلكية بنسبة 65% مساحة كبيرة على مكتبك مع سهولة الحمل.\nدعم كامل لخاصية التبديل السريع (Hot Swappable): متوافقة مع معظم المفاتيح ذات الـ 3 دبابيس، تخصيص المفاتيح في أي وقت.\nتقنية مضادة للاشباح وحشوة EVA للصوت: استجابة سريعة ودقيقة أثناء الألعاب القوية أو التحرير السريع.\nإضاءة خلفية قوس قزح وأغطية مفاتيح UV: 19 تصميماً مختلفاً للألوان.\nلوحة مفاتيح برمجية بالكامل: ماكرو قابل للتخصيص، متوافقة مع Windows وMac وAndroid وLinux.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
+  },
+  {
+    "id": "sac-a-dos-retro-cuir-synthetique-grenat",
+    "categoryId": "sacs",
+    "basePrice": 3000,
+    "image": "https://sawa9ly.app/storage/76651/1786011892386_le3fykci_0-(1).jpg",
+    "images": [
+      "https://sawa9ly.app/storage/76651/1786011892386_le3fykci_0-(1).jpg",
+      "https://sawa9ly.app/storage/76652/1786011885909_hiyt3z4n_1.jpg",
+      "https://sawa9ly.app/storage/76653/1786011885973_cglooq6k_71vcmqjj-bl._ac_sl1500_.jpg",
+      "https://sawa9ly.app/storage/76654/1786011894286_9i1bbffg_o1cn01rm0q951dal87fowi2_--2448070233-0-cib-(1).jpg"
+    ],
+    "name": {
+      "fr": "Sac à dos rétro en cuir synthétique pour femme Grenat",
+      "en": "Retro Synthetic Leather Backpack for Women — Burgundy",
+      "ar": "حقيبة ظهر نسائية جلد صناعي تصميم ريترو - لون خمري"
+    },
+    "tagline": {
+      "fr": "Sac à dos rétro en cuir synthétique pour femme Grenat — Paiement à la livraison dans les 58 wilayas",
+      "en": "Retro Synthetic Leather Backpack for Women — Burgundy — Cash on delivery across 58 wilayas",
+      "ar": "حقيبة ظهر نسائية جلد صناعي تصميم ريترو - لون خمري — الدفع عند الاستلام في جميع الـ 58 ولاية"
+    },
+    "description": {
+      "fr": "Sac à dos rétro en cuir synthétique pour femme, coloris Grenat\n• Cuir synthétique robuste et durable : fabrication soignée dans les moindres détails, avec une couture solide pour une longue durée de vie et un design élégant du quotidien.\n• Polyvalent et imperméable : grande capacité intérieure, parfait pour le travail, les déplacements professionnels, les voyages ou les études.\n• 3 façons de le porter : sac fourre-tout classique, sac à bandoulière élégant, ou sac à dos pratique — au choix selon vos besoins.\n• Matière renforcée résistante aux rayures et à la chaleur, tissu extérieur imperméable.\n• Livraison rapide disponible dans les 58 wilayas.\n• Paiement sécurisé à la réception du colis (Cash sur Livraison).",
+      "en": "Retro Synthetic Leather Backpack for Women — Burgundy\n• Sturdy, durable synthetic leather: carefully crafted down to the smallest detail, with strong stitching for long-lasting use and an elegant everyday design.\n• Versatile and water-resistant: large interior capacity, perfect for work, business trips, travel, or studying.\n• 3 ways to wear it: classic tote bag, elegant shoulder bag, or practical backpack — whichever suits your needs.\n• Reinforced material resistant to scratches and heat, water-resistant outer fabric.\n• Fast delivery available across all 58 wilayas.\n• Cash on Delivery (COD) payment upon receipt.",
+      "ar": "جلد اصطناعي فاخر ومتين: تم تصميم وتصنيع هذه الحقيبة بعناية فائقة لتهتم بأصغر التفاصيل، حيث استخدمنا جلداً اصطناعياً متيناً وعالي الجودة، مدمجة بتصميم لطيف وأنيق يناسب إطلالاتك اليومية.\nحقيبة متعددة الاستخدامات ومقاومة للماء: بفضل تصميمها المقاوم للماء وحجمها الداخلي الواسع، مناسبة للعمل، رحلات العمل، السفر، أو الدراسة.\n3 طرق مرنة لارتدائها وحملها: كحقيبة يد كلاسيكية، أو حقيبة كتف أنيقة، أو حقيبة ظهر عملية.\n• توصيل سريع متوفر لجميع الـ 58 ولاية.\n• الدفع عند الاستلام بعد معاينة الطلبية."
+    }
   }
+
 ];
 
 if (typeof window !== 'undefined') { window.PRODUCTS_CATALOG = PRODUCTS_CATALOG; }
