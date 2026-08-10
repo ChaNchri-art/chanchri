@@ -29,7 +29,48 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
     return [];
   }
 
+  /* Maps a Supabase `products` row into the shape the rest of this file expects
+     (same shape as the old static PRODUCTS_CATALOG entries). */
+  function mapSupabaseProduct(row) {
+    return {
+      id: row.id,
+      categoryId: row.category_id || 'divers',
+      basePrice: row.base_price || 0,
+      image: row.image || '',
+      images: Array.isArray(row.images) ? row.images : [],
+      name: { fr: row.name_fr || '', en: row.name_en || '', ar: row.name_ar || '' },
+      tagline: { fr: row.tagline_fr || '', en: row.tagline_en || '', ar: row.tagline_ar || '' },
+      description: { fr: row.description_fr || '', en: row.description_en || '', ar: row.description_ar || '' },
+      stock: row.stock,
+      active: row.active !== false
+    };
+  }
+
   let PRODUCTS = getCatalogList();
+  let productsSource = 'static'; // 'static' | 'supabase'
+
+  /* Loads the live product catalog from Supabase. Falls back silently to the
+     bundled static catalog (already in PRODUCTS) if Supabase is unavailable,
+     so the storefront never breaks even if the DB is briefly unreachable. */
+  async function loadProductsFromSupabase() {
+    if (!window.sb || typeof window.sb.from !== 'function') return;
+    try {
+      const { data, error } = await window.sb
+        .from('products')
+        .select('*')
+        .eq('active', true)
+        .order('created_at', { ascending: true });
+      if (error) throw error;
+      if (Array.isArray(data) && data.length) {
+        PRODUCTS = data.map(mapSupabaseProduct);
+        productsSource = 'supabase';
+        renderCatalog();
+        renderCatFilters();
+      }
+    } catch (e) {
+      console.warn('Could not load live products from Supabase, using bundled catalog instead.', e);
+    }
+  }
 
   /* EDIT ME — your markup rules (applied automatically on top of basePrice) */
   function computeMarkup(base){
@@ -1288,6 +1329,11 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
       PRODUCTS = window.PRODUCTS_CATALOG;
       renderCatalog();
     }
+
+    // Load the live catalog from Supabase — this is what makes admin edits
+    // appear on the storefront without a redeploy. Bundled catalog above
+    // renders immediately so the page isn't empty while this loads.
+    loadProductsFromSupabase();
   }
 
   if (document.readyState === 'loading') {

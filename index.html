@@ -41,6 +41,56 @@
   .admin-btn-danger{ color:#c0392b; }
   .admin-status-select{ padding:7px 10px; border-radius:var(--radius); border:1px solid var(--line); background:var(--bg); color:var(--ink); font-size:12.5px; }
   .admin-empty{ text-align:center; padding:60px 0; color:var(--ink-soft); }
+
+  /* ---- Admin tabs ---- */
+  .admin-tabs{ display:flex; gap:6px; border-bottom:1px solid var(--line); margin-bottom:20px; }
+  .admin-tab-btn{ background:none; border:none; padding:10px 16px; font-size:13.5px; font-weight:600; color:var(--ink-soft); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
+  .admin-tab-btn.active{ color:var(--pink-deep); border-bottom-color:var(--pink-deep); }
+
+  /* ---- Products tab ---- */
+  .admin-products-toolbar{ display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .admin-products-filters{ display:flex; gap:8px; flex-wrap:wrap; }
+  .admin-products-filters input, .admin-products-filters select{ padding:8px 10px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg); color:var(--ink); font-size:12.5px; }
+  .admin-products-filters input{ width:200px; }
+  .admin-btn-primary{ background:var(--pink-deep); color:#fff; border:none; padding:9px 16px; border-radius:var(--radius); font-size:13px; font-weight:700; cursor:pointer; }
+  .admin-stats-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-bottom:18px; }
+  .admin-stat-card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .admin-stat-label{ font-size:11.5px; color:var(--ink-soft); margin-bottom:4px; }
+  .admin-stat-value{ font-size:20px; font-weight:800; font-family:'Big Shoulders Display',sans-serif; }
+  .admin-stat-value.warn{ color:#b5842a; }
+  .admin-stat-value.danger{ color:#c0392b; }
+  .admin-products-table-wrap{ border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface); }
+  .admin-products-table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  .admin-products-table th{ text-align:left; padding:10px; color:var(--ink-soft); font-weight:600; border-bottom:1px solid var(--line); background:var(--bg); }
+  .admin-products-table td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:middle; }
+  .admin-products-table tr:last-child td{ border-bottom:none; }
+  .admin-prod-thumb{ width:34px; height:34px; border-radius:6px; object-fit:cover; background:var(--bg); flex-shrink:0; }
+  .admin-prod-name-cell{ display:flex; align-items:center; gap:8px; max-width:280px; }
+  .admin-prod-name-text{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .admin-badge{ display:inline-block; padding:2px 8px; border-radius:20px; font-size:11px; font-weight:600; }
+  .admin-badge-ok{ background:#dff3e3; color:#1e7e34; }
+  .admin-badge-warn{ background:#fbeecb; color:#8a5a00; }
+  .admin-badge-danger{ background:#fbdada; color:#a02020; }
+  .admin-row-actions{ display:flex; gap:10px; justify-content:flex-end; }
+  .admin-row-actions button{ background:none; border:none; cursor:pointer; color:var(--ink-soft); font-size:12.5px; padding:2px; }
+  .admin-row-actions button:hover{ color:var(--pink-deep); }
+  .admin-pagination{ display:flex; justify-content:center; gap:6px; margin-top:14px; }
+  .admin-pagination button{ padding:6px 11px; border:1px solid var(--line); background:var(--bg); border-radius:var(--radius); font-size:12px; cursor:pointer; }
+  .admin-pagination button.active{ background:var(--pink-deep); color:#fff; border-color:var(--pink-deep); }
+  .admin-pagination button:disabled{ opacity:0.4; cursor:default; }
+
+  /* ---- Product form modal ---- */
+  .admin-modal-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; display:none; align-items:flex-start; justify-content:center; overflow-y:auto; padding:40px 16px; }
+  .admin-modal-overlay.open{ display:flex; }
+  .admin-modal{ background:var(--surface); border-radius:14px; max-width:560px; width:100%; padding:24px; }
+  .admin-modal h3{ font-size:17px; margin-bottom:16px; }
+  .admin-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .admin-form-grid .full{ grid-column:1/-1; }
+  .admin-form-grid label{ font-size:11.5px; color:var(--ink-soft); display:block; margin-bottom:4px; }
+  .admin-form-grid input, .admin-form-grid select, .admin-form-grid textarea{ width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg); color:var(--ink); font-size:13px; font-family:inherit; }
+  .admin-form-grid textarea{ min-height:60px; resize:vertical; }
+  .admin-modal-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:18px; }
+  .admin-modal-error{ color:#c0392b; font-size:12.5px; margin-bottom:10px; display:none; }
 </style>
 
 <div id="adminPanel">
@@ -58,9 +108,105 @@
       <button id="adminLoginBtn">Se connecter</button>
     </div>
 
-    <div id="adminOrdersSection" style="display:none;">
-      <div id="adminOrdersList"></div>
+    <div id="adminDashboard" style="display:none;">
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" id="adminTabOrdersBtn" data-tab="orders">Commandes</button>
+        <button class="admin-tab-btn" id="adminTabProductsBtn" data-tab="products">Produits</button>
+      </div>
+
+      <div id="adminOrdersSection">
+        <div id="adminOrdersList"></div>
+      </div>
+
+      <div id="adminProductsSection" style="display:none;">
+        <div class="admin-stats-row" id="adminProductStats"></div>
+
+        <div class="admin-products-toolbar">
+          <div class="admin-products-filters">
+            <input type="text" id="prodSearchInput" placeholder="Rechercher un produit...">
+            <select id="prodCategoryFilter"><option value="">Toutes catégories</option></select>
+            <select id="prodStockFilter">
+              <option value="">Tout stock</option>
+              <option value="in">En stock</option>
+              <option value="low">Stock faible</option>
+              <option value="out">Rupture</option>
+            </select>
+          </div>
+          <button class="admin-btn-primary" id="prodAddBtn">+ Ajouter un produit</button>
+        </div>
+
+        <div class="admin-products-table-wrap">
+          <table class="admin-products-table">
+            <thead>
+              <tr>
+                <th>Produit</th><th>Catégorie</th><th>Prix</th><th>Stock</th><th>Statut</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="adminProductsTableBody"></tbody>
+          </table>
+        </div>
+        <div class="admin-pagination" id="adminProductsPagination"></div>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="admin-modal-overlay" id="prodModalOverlay">
+  <div class="admin-modal">
+    <h3 id="prodModalTitle">Ajouter un produit</h3>
+    <div class="admin-modal-error" id="prodModalError"></div>
+    <form id="prodForm">
+      <input type="hidden" id="prodFormId">
+      <div class="admin-form-grid">
+        <div class="full">
+          <label>Nom (FR) *</label>
+          <input type="text" id="prodNameFr" required>
+        </div>
+        <div>
+          <label>Nom (EN)</label>
+          <input type="text" id="prodNameEn">
+        </div>
+        <div>
+          <label>Nom (AR)</label>
+          <input type="text" id="prodNameAr">
+        </div>
+        <div>
+          <label>Catégorie *</label>
+          <select id="prodCategory" required></select>
+        </div>
+        <div>
+          <label>Prix de base (DA) *</label>
+          <input type="number" id="prodPrice" required min="0">
+        </div>
+        <div>
+          <label>Stock (vide = illimité)</label>
+          <input type="number" id="prodStock" min="0">
+        </div>
+        <div>
+          <label>Actif sur le site</label>
+          <select id="prodActive">
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+          </select>
+        </div>
+        <div class="full">
+          <label>Image principale (URL)</label>
+          <input type="text" id="prodImage" placeholder="https://...">
+        </div>
+        <div class="full">
+          <label>Tagline (FR)</label>
+          <input type="text" id="prodTaglineFr">
+        </div>
+        <div class="full">
+          <label>Description (FR)</label>
+          <textarea id="prodDescFr"></textarea>
+        </div>
+      </div>
+      <div class="admin-modal-actions">
+        <button type="button" class="admin-btn" id="prodCancelBtn">Annuler</button>
+        <button type="submit" class="admin-btn-primary" id="prodSaveBtn">Enregistrer</button>
+      </div>
+    </form>
   </div>
 </div>
 
