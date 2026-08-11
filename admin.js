@@ -364,12 +364,15 @@ function slugify(text) {
     .slice(0, 60) || ('produit-' + Date.now());
 }
 
+let currentProductImages = []; // uploaded/existing image URLs for the open form
+
 function openProductForm(id) {
   const overlay = document.getElementById('prodModalOverlay');
   const title = document.getElementById('prodModalTitle');
   const errEl = document.getElementById('prodModalError');
   errEl.style.display = 'none';
   document.getElementById('prodForm').reset();
+  document.getElementById('prodUploadError').style.display = 'none';
 
   if (id) {
     const p = allProducts.find(x => x.id === id);
@@ -384,21 +387,75 @@ function openProductForm(id) {
     document.getElementById('prodStock').value = p.stock === null || p.stock === undefined ? '' : p.stock;
     document.getElementById('prodRating').value = p.rating ? p.rating : '';
     document.getElementById('prodActive').value = p.active ? 'true' : 'false';
-    const imgs = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
-    document.getElementById('prodImages').value = imgs.join('\n');
+    currentProductImages = Array.isArray(p.images) && p.images.length ? p.images.slice() : (p.image ? [p.image] : []);
     document.getElementById('prodTaglineFr').value = p.tagline_fr || '';
     document.getElementById('prodDescFr').value = p.description_fr || '';
   } else {
     title.textContent = 'Ajouter un produit';
     document.getElementById('prodFormId').value = '';
     document.getElementById('prodActive').value = 'true';
+    currentProductImages = [];
   }
 
+  renderImagePreviews();
   overlay.classList.add('open');
 }
 
 function closeProductForm() {
   document.getElementById('prodModalOverlay').classList.remove('open');
+}
+
+function renderImagePreviews() {
+  const wrap = document.getElementById('prodImagePreviews');
+  wrap.innerHTML = currentProductImages.map((url, i) => `
+    <div class="admin-image-thumb">
+      <img src="${escapeHtml(url)}">
+      ${i === 0 ? '<div class="main-badge">Principale</div>' : ''}
+      <button type="button" class="remove-btn" data-index="${i}" title="Retirer">✕</button>
+    </div>
+  `).join('');
+  wrap.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentProductImages.splice(parseInt(btn.dataset.index, 10), 1);
+      renderImagePreviews();
+    });
+  });
+}
+
+function sanitizeFileName(name) {
+  return name.toLowerCase().replace(/[^a-z0-9.]+/g, '-').replace(/-+/g, '-');
+}
+
+async function uploadProductImages(fileList) {
+  const errEl = document.getElementById('prodUploadError');
+  errEl.style.display = 'none';
+  const files = Array.from(fileList).filter(f => f.type.startsWith('image/'));
+  if (!files.length) return;
+
+  // Show placeholder thumbnails immediately for feedback while each file uploads.
+  const placeholders = files.map(f => URL.createObjectURL(f));
+  const startIndex = currentProductImages.length;
+  currentProductImages.push(...placeholders);
+  renderImagePreviews();
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const path = `products/${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${sanitizeFileName(file.name)}`;
+    const { error } = await window.sb.storage.from('product-images').upload(path, file, {
+      cacheControl: '3600',
+      upsert: false
+    });
+    if (error) {
+      errEl.textContent = `Échec de l'envoi de "${file.name}": ${error.message}`;
+      errEl.style.display = 'block';
+      currentProductImages.splice(startIndex + i, 1, null); // mark failed
+      continue;
+    }
+    const { data: pub } = window.sb.storage.from('product-images').getPublicUrl(path);
+    currentProductImages[startIndex + i] = pub.publicUrl;
+  }
+  currentProductImages = currentProductImages.filter(Boolean);
+  renderImagePreviews();
 }
 
 async function saveProduct(e) {
@@ -410,8 +467,7 @@ async function saveProduct(e) {
   const nameFr = document.getElementById('prodNameFr').value.trim();
   if (!nameFr) return;
 
-  const imagesList = document.getElementById('prodImages').value
-    .split('\n').map(s => s.trim()).filter(Boolean);
+  const imagesList = currentProductImages.filter(Boolean);
   const descFr = document.getElementById('prodDescFr').value.trim();
   if (!imagesList.length) {
     errEl.textContent = 'Ajoutez au moins une image.';
@@ -491,6 +547,21 @@ function initProductsTab() {
     if (e.target.id === 'prodModalOverlay') closeProductForm();
   });
   document.getElementById('prodForm').addEventListener('submit', saveProduct);
+
+  const uploadZone = document.getElementById('prodUploadZone');
+  const fileInput = document.getElementById('prodImageFiles');
+  uploadZone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) uploadProductImages(fileInput.files);
+    fileInput.value = '';
+  });
+  uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) uploadProductImages(e.dataTransfer.files);
+  });
 
   document.getElementById('prodSearchInput').addEventListener('input', () => { productsPage = 1; renderProductsTable(); });
   document.getElementById('prodCategoryFilter').addEventListener('change', () => { productsPage = 1; renderProductsTable(); });
