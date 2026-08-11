@@ -261,8 +261,8 @@ function getFilteredProducts() {
     return true;
   });
 
-  if (sort === 'sold-desc') list = list.slice().sort((a, b) => b._sold - a._sold);
-  else if (sort === 'clicks-desc') list = list.slice().sort((a, b) => b._clicks - a._clicks);
+  if (sort === 'sold-desc') list = list.slice().sort((a, b) => (b.units_sold || 0) - (a.units_sold || 0));
+  else if (sort === 'clicks-desc') list = list.slice().sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
   else if (sort === 'rating-desc') list = list.slice().sort((a, b) => (b.rating || 0) - (a.rating || 0));
   else if (sort === 'price-asc') list = list.slice().sort((a, b) => a.base_price - b.base_price);
   else if (sort === 'price-desc') list = list.slice().sort((a, b) => b.base_price - a.base_price);
@@ -292,8 +292,8 @@ function renderProductsTable() {
         <td>${escapeHtml(PRODUCT_CATEGORIES[p.category_id] || p.category_id || '')}</td>
         <td>${fmtDA2(p.base_price)}</td>
         <td>${stockBadge(p.stock)}</td>
-        <td>${p._sold || 0}</td>
-        <td>${p._clicks || 0}</td>
+        <td>${p.units_sold || 0}</td>
+        <td>${p.clicks || 0}</td>
         <td>${p.rating ? '★ ' + Number(p.rating).toFixed(1) : '—'}</td>
         <td>${p.active ? '<span class="admin-badge admin-badge-ok">Actif</span>' : '<span class="admin-badge admin-badge-danger">Inactif</span>'}</td>
         <td>
@@ -335,55 +335,23 @@ async function loadProducts() {
   const tbody = document.getElementById('adminProductsTableBody');
   tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px;">Chargement…</td></tr>`;
 
-  const [productsRes, statsRes] = await Promise.all([
-    window.sb.from('products').select('*').order('created_at', { ascending: false }),
-    fetchProductStats()
-  ]);
+  const { data, error } = await window.sb
+    .from('products')
+    .select('*')
+    .order('created_at', { ascending: false });
 
-  if (productsRes.error) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px;">Erreur: ${escapeHtml(productsRes.error.message)}</td></tr>`;
+  if (error) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px;">Erreur: ${escapeHtml(error.message)}</td></tr>`;
     return;
   }
 
-  allProducts = (productsRes.data || []).map(p => ({
-    ...p,
-    _sold: statsRes.soldMap[p.id] || 0,
-    _clicks: statsRes.clicksMap[p.id] || 0
-  }));
+  // units_sold, clicks, and rating are maintained directly on the products
+  // row (units_sold via a DB trigger on orders, clicks via the
+  // increment_product_click RPC) — no extra aggregation needed here.
+  allProducts = data || [];
   productsPage = 1;
   renderProductStats();
   renderProductsTable();
-}
-
-/* Aggregates units sold (from orders.items) and click counts (from
-   product_clicks) per product id, client-side. Cheap enough at this scale;
-   revisit with a Postgres view/RPC if order volume grows a lot. */
-async function fetchProductStats() {
-  const soldMap = {};
-  const clicksMap = {};
-
-  const [ordersRes, clicksRes] = await Promise.all([
-    window.sb.from('orders').select('items'),
-    window.sb.from('product_clicks').select('product_id')
-  ]);
-
-  if (!ordersRes.error && ordersRes.data) {
-    ordersRes.data.forEach(order => {
-      (order.items || []).forEach(item => {
-        if (!item || !item.id) return;
-        soldMap[item.id] = (soldMap[item.id] || 0) + (item.qty || 0);
-      });
-    });
-  }
-
-  if (!clicksRes.error && clicksRes.data) {
-    clicksRes.data.forEach(row => {
-      if (!row.product_id) return;
-      clicksMap[row.product_id] = (clicksMap[row.product_id] || 0) + 1;
-    });
-  }
-
-  return { soldMap, clicksMap };
 }
 
 function slugify(text) {
@@ -414,7 +382,7 @@ function openProductForm(id) {
     document.getElementById('prodCategory').value = p.category_id || 'divers';
     document.getElementById('prodPrice').value = p.base_price || 0;
     document.getElementById('prodStock').value = p.stock === null || p.stock === undefined ? '' : p.stock;
-    document.getElementById('prodRating').value = p.rating === null || p.rating === undefined ? '' : p.rating;
+    document.getElementById('prodRating').value = p.rating ? p.rating : '';
     document.getElementById('prodActive').value = p.active ? 'true' : 'false';
     const imgs = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
     document.getElementById('prodImages').value = imgs.join('\n');
@@ -462,7 +430,6 @@ async function saveProduct(e) {
     category_id: document.getElementById('prodCategory').value,
     base_price: parseInt(document.getElementById('prodPrice').value, 10) || 0,
     stock: stockRaw === '' ? null : parseInt(stockRaw, 10),
-    rating: ratingRaw === '' ? null : parseFloat(ratingRaw),
     active: document.getElementById('prodActive').value === 'true',
     image: imagesList[0],
     images: imagesList,
@@ -475,9 +442,11 @@ async function saveProduct(e) {
     description_fr: descFr,
     description_en: descFr,
     description_ar: descFr,
-    source: 'manual',
-    updated_at: new Date().toISOString()
+    source: 'manual'
   };
+  // rating is NOT NULL in the DB (default 0) — only include it when the
+  // admin actually typed a value, otherwise leave the column untouched/default.
+  if (ratingRaw !== '') record.rating = parseFloat(ratingRaw);
 
   const saveBtn = document.getElementById('prodSaveBtn');
   saveBtn.disabled = true;
@@ -541,12 +510,9 @@ async function loadVisits() {
   chartEl.innerHTML = '';
   topEl.innerHTML = '';
 
-  const [visitsRes, clicksRes, productsRes] = await Promise.all([
+  const [visitsRes, productsRes] = await Promise.all([
     window.sb.from('visits').select('visitor_key, created_at'),
-    window.sb.from('product_clicks').select('product_id, created_at'),
-    // Only fetch id/name so we can label the "most viewed" list even if the
-    // Products tab hasn't been opened yet in this session.
-    window.sb.from('products').select('id, name_fr')
+    window.sb.from('products').select('id, name_fr, clicks').order('clicks', { ascending: false }).limit(8)
   ]);
 
   if (visitsRes.error) {
@@ -555,10 +521,8 @@ async function loadVisits() {
   }
 
   const visits = visitsRes.data || [];
-  const clicks = clicksRes.data || [];
-  const products = productsRes.data || [];
-  const nameById = {};
-  products.forEach(p => { nameById[p.id] = p.name_fr; });
+  const topProducts = productsRes.data || [];
+  const totalClicks = topProducts.reduce((sum, p) => sum + (p.clicks || 0), 0);
 
   const now = new Date();
   const startOfDay = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -577,7 +541,7 @@ async function loadVisits() {
     <div class="admin-stat-card"><div class="admin-stat-label">Aujourd'hui</div><div class="admin-stat-value">${todayCount}</div></div>
     <div class="admin-stat-card"><div class="admin-stat-label">7 derniers jours</div><div class="admin-stat-value">${weekCount}</div></div>
     <div class="admin-stat-card"><div class="admin-stat-label">30 derniers jours</div><div class="admin-stat-value">${monthCount}</div></div>
-    <div class="admin-stat-card"><div class="admin-stat-label">Vues produits (total)</div><div class="admin-stat-value">${clicks.length}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">Vues produits (top 8)</div><div class="admin-stat-value">${totalClicks}</div></div>
   `;
 
   // Last 14 days bar chart
@@ -599,20 +563,16 @@ async function loadVisits() {
     </div>
   `).join('');
 
-  // Top viewed products
-  const clickCounts = {};
-  clicks.forEach(c => { if (c.product_id) clickCounts[c.product_id] = (clickCounts[c.product_id] || 0) + 1; });
-  const topProducts = Object.entries(clickCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8);
-
-  if (!topProducts.length) {
+  // Top viewed products (products.clicks, maintained by the
+  // increment_product_click RPC called from the storefront)
+  const withClicks = topProducts.filter(p => (p.clicks || 0) > 0);
+  if (!withClicks.length) {
     topEl.innerHTML = `<div style="color:var(--ink-soft); font-size:12.5px;">Pas encore de données de consultation.</div>`;
   } else {
-    topEl.innerHTML = topProducts.map(([id, count]) => `
+    topEl.innerHTML = withClicks.map(p => `
       <div class="top-prod-row">
-        <span class="top-prod-name">${escapeHtml(nameById[id] || id)}</span>
-        <span class="top-prod-count">${count}</span>
+        <span class="top-prod-name">${escapeHtml(p.name_fr || p.id)}</span>
+        <span class="top-prod-count">${p.clicks}</span>
       </div>
     `).join('');
   }

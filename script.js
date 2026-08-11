@@ -603,8 +603,8 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
     /* Fire-and-forget click tracking for admin "most viewed" stats. Never
        blocks the UI and never throws if Supabase is unavailable. */
     try {
-      if (window.sb && typeof window.sb.from === 'function' && p && p.id) {
-        window.sb.from('product_clicks').insert({ product_id: p.id }).then(() => {}, () => {});
+      if (window.sb && typeof window.sb.rpc === 'function' && p && p.id) {
+        window.sb.rpc('increment_product_click', { p_id: p.id }).then(() => {}, () => {});
       }
     } catch (e) { /* silent */ }
     pmQty = 1;
