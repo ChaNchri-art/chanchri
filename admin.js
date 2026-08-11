@@ -247,8 +247,9 @@ function getFilteredProducts() {
   const search = (document.getElementById('prodSearchInput').value || '').trim().toLowerCase();
   const cat = document.getElementById('prodCategoryFilter').value;
   const stockFilter = document.getElementById('prodStockFilter').value;
+  const sort = document.getElementById('prodSortSelect').value;
 
-  return allProducts.filter(p => {
+  let list = allProducts.filter(p => {
     if (search) {
       const hay = `${p.name_fr || ''} ${p.name_en || ''}`.toLowerCase();
       if (!hay.includes(search)) return false;
@@ -259,6 +260,14 @@ function getFilteredProducts() {
     if (stockFilter === 'out' && p.stock !== 0) return false;
     return true;
   });
+
+  if (sort === 'sold-desc') list = list.slice().sort((a, b) => b._sold - a._sold);
+  else if (sort === 'clicks-desc') list = list.slice().sort((a, b) => b._clicks - a._clicks);
+  else if (sort === 'rating-desc') list = list.slice().sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  else if (sort === 'price-asc') list = list.slice().sort((a, b) => a.base_price - b.base_price);
+  else if (sort === 'price-desc') list = list.slice().sort((a, b) => b.base_price - a.base_price);
+
+  return list;
 }
 
 function renderProductsTable() {
@@ -270,7 +279,7 @@ function renderProductsTable() {
 
   const tbody = document.getElementById('adminProductsTableBody');
   if (!pageItems.length) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px; color:var(--ink-soft);">Aucun produit trouvé.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px; color:var(--ink-soft);">Aucun produit trouvé.</td></tr>`;
   } else {
     tbody.innerHTML = pageItems.map(p => `
       <tr data-id="${escapeHtml(p.id)}">
@@ -283,6 +292,9 @@ function renderProductsTable() {
         <td>${escapeHtml(PRODUCT_CATEGORIES[p.category_id] || p.category_id || '')}</td>
         <td>${fmtDA2(p.base_price)}</td>
         <td>${stockBadge(p.stock)}</td>
+        <td>${p._sold || 0}</td>
+        <td>${p._clicks || 0}</td>
+        <td>${p.rating ? '★ ' + Number(p.rating).toFixed(1) : '—'}</td>
         <td>${p.active ? '<span class="admin-badge admin-badge-ok">Actif</span>' : '<span class="admin-badge admin-badge-danger">Inactif</span>'}</td>
         <td>
           <div class="admin-row-actions">
@@ -321,22 +333,57 @@ function renderProductsTable() {
 
 async function loadProducts() {
   const tbody = document.getElementById('adminProductsTableBody');
-  tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px;">Chargement…</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px;">Chargement…</td></tr>`;
 
-  const { data, error } = await window.sb
-    .from('products')
-    .select('*')
-    .order('created_at', { ascending: false });
+  const [productsRes, statsRes] = await Promise.all([
+    window.sb.from('products').select('*').order('created_at', { ascending: false }),
+    fetchProductStats()
+  ]);
 
-  if (error) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px;">Erreur: ${escapeHtml(error.message)}</td></tr>`;
+  if (productsRes.error) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:30px;">Erreur: ${escapeHtml(productsRes.error.message)}</td></tr>`;
     return;
   }
 
-  allProducts = data || [];
+  allProducts = (productsRes.data || []).map(p => ({
+    ...p,
+    _sold: statsRes.soldMap[p.id] || 0,
+    _clicks: statsRes.clicksMap[p.id] || 0
+  }));
   productsPage = 1;
   renderProductStats();
   renderProductsTable();
+}
+
+/* Aggregates units sold (from orders.items) and click counts (from
+   product_clicks) per product id, client-side. Cheap enough at this scale;
+   revisit with a Postgres view/RPC if order volume grows a lot. */
+async function fetchProductStats() {
+  const soldMap = {};
+  const clicksMap = {};
+
+  const [ordersRes, clicksRes] = await Promise.all([
+    window.sb.from('orders').select('items'),
+    window.sb.from('product_clicks').select('product_id')
+  ]);
+
+  if (!ordersRes.error && ordersRes.data) {
+    ordersRes.data.forEach(order => {
+      (order.items || []).forEach(item => {
+        if (!item || !item.id) return;
+        soldMap[item.id] = (soldMap[item.id] || 0) + (item.qty || 0);
+      });
+    });
+  }
+
+  if (!clicksRes.error && clicksRes.data) {
+    clicksRes.data.forEach(row => {
+      if (!row.product_id) return;
+      clicksMap[row.product_id] = (clicksMap[row.product_id] || 0) + 1;
+    });
+  }
+
+  return { soldMap, clicksMap };
 }
 
 function slugify(text) {
@@ -367,8 +414,10 @@ function openProductForm(id) {
     document.getElementById('prodCategory').value = p.category_id || 'divers';
     document.getElementById('prodPrice').value = p.base_price || 0;
     document.getElementById('prodStock').value = p.stock === null || p.stock === undefined ? '' : p.stock;
+    document.getElementById('prodRating').value = p.rating === null || p.rating === undefined ? '' : p.rating;
     document.getElementById('prodActive').value = p.active ? 'true' : 'false';
-    document.getElementById('prodImage').value = p.image || '';
+    const imgs = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
+    document.getElementById('prodImages').value = imgs.join('\n');
     document.getElementById('prodTaglineFr').value = p.tagline_fr || '';
     document.getElementById('prodDescFr').value = p.description_fr || '';
   } else {
@@ -393,23 +442,39 @@ async function saveProduct(e) {
   const nameFr = document.getElementById('prodNameFr').value.trim();
   if (!nameFr) return;
 
+  const imagesList = document.getElementById('prodImages').value
+    .split('\n').map(s => s.trim()).filter(Boolean);
+  const descFr = document.getElementById('prodDescFr').value.trim();
+  if (!imagesList.length) {
+    errEl.textContent = 'Ajoutez au moins une image.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (!descFr) {
+    errEl.textContent = 'La description est obligatoire.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const ratingRaw = document.getElementById('prodRating').value;
   const stockRaw = document.getElementById('prodStock').value;
   const record = {
     category_id: document.getElementById('prodCategory').value,
     base_price: parseInt(document.getElementById('prodPrice').value, 10) || 0,
     stock: stockRaw === '' ? null : parseInt(stockRaw, 10),
+    rating: ratingRaw === '' ? null : parseFloat(ratingRaw),
     active: document.getElementById('prodActive').value === 'true',
-    image: document.getElementById('prodImage').value.trim(),
-    images: document.getElementById('prodImage').value.trim() ? [document.getElementById('prodImage').value.trim()] : [],
+    image: imagesList[0],
+    images: imagesList,
     name_fr: nameFr,
     name_en: document.getElementById('prodNameEn').value.trim() || nameFr,
     name_ar: document.getElementById('prodNameAr').value.trim() || nameFr,
     tagline_fr: document.getElementById('prodTaglineFr').value.trim(),
     tagline_en: document.getElementById('prodTaglineFr').value.trim(),
     tagline_ar: document.getElementById('prodTaglineFr').value.trim(),
-    description_fr: document.getElementById('prodDescFr').value.trim(),
-    description_en: document.getElementById('prodDescFr').value.trim(),
-    description_ar: document.getElementById('prodDescFr').value.trim(),
+    description_fr: descFr,
+    description_en: descFr,
+    description_ar: descFr,
     source: 'manual',
     updated_at: new Date().toISOString()
   };
@@ -461,27 +526,113 @@ function initProductsTab() {
   document.getElementById('prodSearchInput').addEventListener('input', () => { productsPage = 1; renderProductsTable(); });
   document.getElementById('prodCategoryFilter').addEventListener('change', () => { productsPage = 1; renderProductsTable(); });
   document.getElementById('prodStockFilter').addEventListener('change', () => { productsPage = 1; renderProductsTable(); });
+  document.getElementById('prodSortSelect').addEventListener('change', () => { productsPage = 1; renderProductsTable(); });
+}
+
+/* ===================================================================
+   Visits tab
+   =================================================================== */
+
+async function loadVisits() {
+  const statsEl = document.getElementById('adminVisitsStats');
+  const chartEl = document.getElementById('adminVisitsChart');
+  const topEl = document.getElementById('adminTopProducts');
+  statsEl.innerHTML = `<div class="admin-stat-card"><div class="admin-stat-label">Chargement…</div></div>`;
+  chartEl.innerHTML = '';
+  topEl.innerHTML = '';
+
+  const [visitsRes, clicksRes, productsRes] = await Promise.all([
+    window.sb.from('visits').select('visitor_key, created_at'),
+    window.sb.from('product_clicks').select('product_id, created_at'),
+    // Only fetch id/name so we can label the "most viewed" list even if the
+    // Products tab hasn't been opened yet in this session.
+    window.sb.from('products').select('id, name_fr')
+  ]);
+
+  if (visitsRes.error) {
+    statsEl.innerHTML = `<div class="admin-stat-card"><div class="admin-stat-label">Erreur: ${escapeHtml(visitsRes.error.message)}</div></div>`;
+    return;
+  }
+
+  const visits = visitsRes.data || [];
+  const clicks = clicksRes.data || [];
+  const products = productsRes.data || [];
+  const nameById = {};
+  products.forEach(p => { nameById[p.id] = p.name_fr; });
+
+  const now = new Date();
+  const startOfDay = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const today = startOfDay(now);
+  const weekAgo = new Date(today); weekAgo.setDate(weekAgo.getDate() - 6);
+  const monthAgo = new Date(today); monthAgo.setDate(monthAgo.getDate() - 29);
+
+  const uniqueVisitors = new Set(visits.map(v => v.visitor_key)).size;
+  const todayCount = visits.filter(v => new Date(v.created_at) >= today).length;
+  const weekCount = visits.filter(v => new Date(v.created_at) >= weekAgo).length;
+  const monthCount = visits.filter(v => new Date(v.created_at) >= monthAgo).length;
+
+  statsEl.innerHTML = `
+    <div class="admin-stat-card"><div class="admin-stat-label">Visites totales</div><div class="admin-stat-value">${visits.length}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">Visiteurs uniques</div><div class="admin-stat-value">${uniqueVisitors}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">Aujourd'hui</div><div class="admin-stat-value">${todayCount}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">7 derniers jours</div><div class="admin-stat-value">${weekCount}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">30 derniers jours</div><div class="admin-stat-value">${monthCount}</div></div>
+    <div class="admin-stat-card"><div class="admin-stat-label">Vues produits (total)</div><div class="admin-stat-value">${clicks.length}</div></div>
+  `;
+
+  // Last 14 days bar chart
+  const days = [];
+  for (let i = 13; i >= 0; i--) {
+    const d = new Date(today); d.setDate(d.getDate() - i);
+    days.push(d);
+  }
+  const dayCounts = days.map(d => {
+    const next = new Date(d); next.setDate(next.getDate() + 1);
+    return visits.filter(v => { const t = new Date(v.created_at); return t >= d && t < next; }).length;
+  });
+  const maxCount = Math.max(1, ...dayCounts);
+  chartEl.innerHTML = days.map((d, i) => `
+    <div class="visit-bar-row">
+      <div class="visit-bar-label">${d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })}</div>
+      <div class="visit-bar-track"><div class="visit-bar-fill" style="width:${(dayCounts[i] / maxCount) * 100}%;"></div></div>
+      <div class="visit-bar-count">${dayCounts[i]}</div>
+    </div>
+  `).join('');
+
+  // Top viewed products
+  const clickCounts = {};
+  clicks.forEach(c => { if (c.product_id) clickCounts[c.product_id] = (clickCounts[c.product_id] || 0) + 1; });
+  const topProducts = Object.entries(clickCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8);
+
+  if (!topProducts.length) {
+    topEl.innerHTML = `<div style="color:var(--ink-soft); font-size:12.5px;">Pas encore de données de consultation.</div>`;
+  } else {
+    topEl.innerHTML = topProducts.map(([id, count]) => `
+      <div class="top-prod-row">
+        <span class="top-prod-name">${escapeHtml(nameById[id] || id)}</span>
+        <span class="top-prod-count">${count}</span>
+      </div>
+    `).join('');
+  }
 }
 
 function initAdminTabs() {
-  const ordersBtn = document.getElementById('adminTabOrdersBtn');
-  const productsBtn = document.getElementById('adminTabProductsBtn');
-  const ordersSection = document.getElementById('adminOrdersSection');
-  const productsSection = document.getElementById('adminProductsSection');
+  const tabs = [
+    { btn: 'adminTabOrdersBtn', section: 'adminOrdersSection', onShow: null },
+    { btn: 'adminTabProductsBtn', section: 'adminProductsSection', onShow: () => loadProducts() },
+    { btn: 'adminTabVisitsBtn', section: 'adminVisitsSection', onShow: () => loadVisits() }
+  ];
 
-  ordersBtn.addEventListener('click', () => {
-    ordersBtn.classList.add('active');
-    productsBtn.classList.remove('active');
-    ordersSection.style.display = 'block';
-    productsSection.style.display = 'none';
-  });
-
-  productsBtn.addEventListener('click', () => {
-    productsBtn.classList.add('active');
-    ordersBtn.classList.remove('active');
-    productsSection.style.display = 'block';
-    ordersSection.style.display = 'none';
-    if (!allProducts.length) loadProducts();
+  tabs.forEach(tab => {
+    document.getElementById(tab.btn).addEventListener('click', () => {
+      tabs.forEach(t => {
+        document.getElementById(t.btn).classList.toggle('active', t.btn === tab.btn);
+        document.getElementById(t.section).style.display = t.btn === tab.btn ? 'block' : 'none';
+      });
+      if (tab.onShow) tab.onShow();
+    });
   });
 }
 

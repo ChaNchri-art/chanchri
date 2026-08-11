@@ -46,7 +46,6 @@
   .admin-tabs{ display:flex; gap:6px; border-bottom:1px solid var(--line); margin-bottom:20px; }
   .admin-tab-btn{ background:none; border:none; padding:10px 16px; font-size:13.5px; font-weight:600; color:var(--ink-soft); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
   .admin-tab-btn.active{ color:var(--pink-deep); border-bottom-color:var(--pink-deep); }
-
   /* ---- Products tab ---- */
   .admin-products-toolbar{ display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-bottom:16px; }
   .admin-products-filters{ display:flex; gap:8px; flex-wrap:wrap; }
@@ -91,6 +90,17 @@
   .admin-form-grid textarea{ min-height:60px; resize:vertical; }
   .admin-modal-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:18px; }
   .admin-modal-error{ color:#c0392b; font-size:12.5px; margin-bottom:10px; display:none; }
+
+  /* ---- Visits tab ---- */
+  .visit-bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+  .visit-bar-label{ width:70px; font-size:11px; color:var(--ink-soft); flex-shrink:0; }
+  .visit-bar-track{ flex:1; background:var(--bg); border-radius:6px; height:14px; overflow:hidden; }
+  .visit-bar-fill{ height:100%; background:var(--pink-deep); border-radius:6px; }
+  .visit-bar-count{ width:28px; text-align:right; font-size:11.5px; color:var(--ink-soft); flex-shrink:0; }
+  .top-prod-row{ display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--line-soft); font-size:12.5px; }
+  .top-prod-row:last-child{ border-bottom:none; }
+  .top-prod-name{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:75%; }
+  .top-prod-count{ color:var(--pink-deep); font-weight:700; flex-shrink:0; }
 </style>
 
 <div id="adminPanel">
@@ -112,6 +122,7 @@
       <div class="admin-tabs">
         <button class="admin-tab-btn active" id="adminTabOrdersBtn" data-tab="orders">Commandes</button>
         <button class="admin-tab-btn" id="adminTabProductsBtn" data-tab="products">Produits</button>
+        <button class="admin-tab-btn" id="adminTabVisitsBtn" data-tab="visits">Visites</button>
       </div>
 
       <div id="adminOrdersSection">
@@ -131,6 +142,14 @@
               <option value="low">Stock faible</option>
               <option value="out">Rupture</option>
             </select>
+            <select id="prodSortSelect">
+              <option value="recent">Plus récents</option>
+              <option value="sold-desc">Plus vendus</option>
+              <option value="clicks-desc">Plus vus</option>
+              <option value="rating-desc">Mieux notés</option>
+              <option value="price-asc">Prix croissant</option>
+              <option value="price-desc">Prix décroissant</option>
+            </select>
           </div>
           <button class="admin-btn-primary" id="prodAddBtn">+ Ajouter un produit</button>
         </div>
@@ -139,13 +158,27 @@
           <table class="admin-products-table">
             <thead>
               <tr>
-                <th>Produit</th><th>Catégorie</th><th>Prix</th><th>Stock</th><th>Statut</th><th></th>
+                <th>Produit</th><th>Catégorie</th><th>Prix</th><th>Stock</th><th>Vendus</th><th>Vues</th><th>Note</th><th>Statut</th><th></th>
               </tr>
             </thead>
             <tbody id="adminProductsTableBody"></tbody>
           </table>
         </div>
         <div class="admin-pagination" id="adminProductsPagination"></div>
+      </div>
+
+      <div id="adminVisitsSection" style="display:none;">
+        <div class="admin-stats-row" id="adminVisitsStats"></div>
+        <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:16px; align-items:start;">
+          <div class="admin-products-table-wrap" style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:12px;">Visites — 14 derniers jours</h3>
+            <div id="adminVisitsChart"></div>
+          </div>
+          <div class="admin-products-table-wrap" style="padding:16px;">
+            <h3 style="font-size:14px; margin-bottom:12px;">Produits les plus consultés</h3>
+            <div id="adminTopProducts"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -183,6 +216,10 @@
           <input type="number" id="prodStock" min="0">
         </div>
         <div>
+          <label>Note (0-5, optionnel)</label>
+          <input type="number" id="prodRating" min="0" max="5" step="0.1">
+        </div>
+        <div>
           <label>Actif sur le site</label>
           <select id="prodActive">
             <option value="true">Oui</option>
@@ -190,16 +227,16 @@
           </select>
         </div>
         <div class="full">
-          <label>Image principale (URL)</label>
-          <input type="text" id="prodImage" placeholder="https://...">
+          <label>Images (une URL par ligne — la 1ère est l'image principale) *</label>
+          <textarea id="prodImages" placeholder="https://...jpg" required style="min-height:70px;"></textarea>
         </div>
         <div class="full">
           <label>Tagline (FR)</label>
           <input type="text" id="prodTaglineFr">
         </div>
         <div class="full">
-          <label>Description (FR)</label>
-          <textarea id="prodDescFr"></textarea>
+          <label>Description (FR) *</label>
+          <textarea id="prodDescFr" required style="min-height:90px;"></textarea>
         </div>
       </div>
       <div class="admin-modal-actions">

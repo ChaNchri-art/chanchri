@@ -599,6 +599,14 @@ import { PRODUCTS_CATALOG } from './products_catalog.js';
 
   function openProductModal(p) {
     currentModalProduct = p;
+
+    /* Fire-and-forget click tracking for admin "most viewed" stats. Never
+       blocks the UI and never throws if Supabase is unavailable. */
+    try {
+      if (window.sb && typeof window.sb.from === 'function' && p && p.id) {
+        window.sb.from('product_clicks').insert({ product_id: p.id }).then(() => {}, () => {});
+      }
+    } catch (e) { /* silent */ }
     pmQty = 1;
     pmDeliveryType = "domicile";
 
