@@ -182,68 +182,68 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="admin-modal-overlay" id="prodModalOverlay">
-  <div class="admin-modal">
-    <h3 id="prodModalTitle">Ajouter un produit</h3>
-    <div class="admin-modal-error" id="prodModalError"></div>
-    <form id="prodForm">
-      <input type="hidden" id="prodFormId">
-      <div class="admin-form-grid">
-        <div class="full">
-          <label>Nom (FR) *</label>
-          <input type="text" id="prodNameFr" required>
+  <div class="admin-modal-overlay" id="prodModalOverlay">
+    <div class="admin-modal">
+      <h3 id="prodModalTitle">Ajouter un produit</h3>
+      <div class="admin-modal-error" id="prodModalError"></div>
+      <form id="prodForm">
+        <input type="hidden" id="prodFormId">
+        <div class="admin-form-grid">
+          <div class="full">
+            <label>Nom (FR) *</label>
+            <input type="text" id="prodNameFr" required>
+          </div>
+          <div>
+            <label>Nom (EN)</label>
+            <input type="text" id="prodNameEn">
+          </div>
+          <div>
+            <label>Nom (AR)</label>
+            <input type="text" id="prodNameAr">
+          </div>
+          <div>
+            <label>Catégorie *</label>
+            <select id="prodCategory" required></select>
+          </div>
+          <div>
+            <label>Prix de base (DA) *</label>
+            <input type="number" id="prodPrice" required min="0">
+          </div>
+          <div>
+            <label>Stock (vide = illimité)</label>
+            <input type="number" id="prodStock" min="0">
+          </div>
+          <div>
+            <label>Note (0-5, optionnel)</label>
+            <input type="number" id="prodRating" min="0" max="5" step="0.1">
+          </div>
+          <div>
+            <label>Actif sur le site</label>
+            <select id="prodActive">
+              <option value="true">Oui</option>
+              <option value="false">Non</option>
+            </select>
+          </div>
+          <div class="full">
+            <label>Images (une URL par ligne — la 1ère est l'image principale) *</label>
+            <textarea id="prodImages" placeholder="https://...jpg" required style="min-height:70px;"></textarea>
+          </div>
+          <div class="full">
+            <label>Tagline (FR)</label>
+            <input type="text" id="prodTaglineFr">
+          </div>
+          <div class="full">
+            <label>Description (FR) *</label>
+            <textarea id="prodDescFr" required style="min-height:90px;"></textarea>
+          </div>
         </div>
-        <div>
-          <label>Nom (EN)</label>
-          <input type="text" id="prodNameEn">
+        <div class="admin-modal-actions">
+          <button type="button" class="admin-btn" id="prodCancelBtn">Annuler</button>
+          <button type="submit" class="admin-btn-primary" id="prodSaveBtn">Enregistrer</button>
         </div>
-        <div>
-          <label>Nom (AR)</label>
-          <input type="text" id="prodNameAr">
-        </div>
-        <div>
-          <label>Catégorie *</label>
-          <select id="prodCategory" required></select>
-        </div>
-        <div>
-          <label>Prix de base (DA) *</label>
-          <input type="number" id="prodPrice" required min="0">
-        </div>
-        <div>
-          <label>Stock (vide = illimité)</label>
-          <input type="number" id="prodStock" min="0">
-        </div>
-        <div>
-          <label>Note (0-5, optionnel)</label>
-          <input type="number" id="prodRating" min="0" max="5" step="0.1">
-        </div>
-        <div>
-          <label>Actif sur le site</label>
-          <select id="prodActive">
-            <option value="true">Oui</option>
-            <option value="false">Non</option>
-          </select>
-        </div>
-        <div class="full">
-          <label>Images (une URL par ligne — la 1ère est l'image principale) *</label>
-          <textarea id="prodImages" placeholder="https://...jpg" required style="min-height:70px;"></textarea>
-        </div>
-        <div class="full">
-          <label>Tagline (FR)</label>
-          <input type="text" id="prodTaglineFr">
-        </div>
-        <div class="full">
-          <label>Description (FR) *</label>
-          <textarea id="prodDescFr" required style="min-height:90px;"></textarea>
-        </div>
-      </div>
-      <div class="admin-modal-actions">
-        <button type="button" class="admin-btn" id="prodCancelBtn">Annuler</button>
-        <button type="submit" class="admin-btn-primary" id="prodSaveBtn">Enregistrer</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 
